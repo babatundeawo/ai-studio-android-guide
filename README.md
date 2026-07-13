@@ -2,7 +2,7 @@
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-babatundeawo.github.io-6D5EF5?style=for-the-badge&logo=googlechrome&logoColor=white)](https://babatundeawo.github.io/ai-studio-android-guide/) [![Licence](https://img.shields.io/badge/Licence-Educational%20Use-14151A?style=for-the-badge)](#licence)
 
-> A professional, interactive web guide for deploying Google AI Studio projects as installable Android PWAs — published by **[Techbase Consultant Services](https://techbasengr.com.ng)**.
+> A professional, interactive web guide for deploying Google AI Studio projects as installable Android PWAs.
 
 **Live site:** [babatundeawo.github.io/ai-studio-android-guide](https://babatundeawo.github.io/ai-studio-android-guide/)
 
