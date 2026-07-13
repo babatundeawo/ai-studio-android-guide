@@ -1,10 +1,10 @@
 # AI Studio → Android: Complete Deployment Guide v2.0
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-techbaseng.github.io-6D5EF5?style=for-the-badge&logo=googlechrome&logoColor=white)](https://techbaseng.github.io/ai-studio-android-guide/) [![Licence](https://img.shields.io/badge/Licence-Educational%20Use-14151A?style=for-the-badge)](#licence)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-babatundeawo.github.io-6D5EF5?style=for-the-badge&logo=googlechrome&logoColor=white)](https://babatundeawo.github.io/ai-studio-android-guide/) [![Licence](https://img.shields.io/badge/Licence-Educational%20Use-14151A?style=for-the-badge)](#licence)
 
 > A professional, interactive web guide for deploying Google AI Studio projects as installable Android PWAs — published by **[Techbase Consultant Services](https://techbasengr.com.ng)**.
 
-**Live site:** [techbaseng.github.io/ai-studio-android-guide](https://techbaseng.github.io/ai-studio-android-guide/)
+**Live site:** [babatundeawo.github.io/ai-studio-android-guide](https://babatundeawo.github.io/ai-studio-android-guide/)
 
 ---
 
@@ -44,8 +44,7 @@ The visual design mirrors the deployment journey itself: a four-stage pipeline (
 
 - **HTML5 / CSS3 / Vanilla JS** — no frameworks
 - **Geist / Geist Mono** — display, body, and monospace font (Google Fonts)
-- **GitHub Pages** — hosting, served from the `techbaseng` organisation
-
+- **GitHub Pages** — hosting, served from the `babatundeawo` github
 ---
 
 ## File Structure
@@ -64,7 +63,7 @@ No build step needed. Just open `index.html` in any browser:
 
 ```bash
 # Clone the repo
-git clone https://github.com/techbaseng/ai-studio-android-guide.git
+git clone https://github.com/babatundeawo/ai-studio-android-guide.git
 cd ai-studio-android-guide
 
 # Open directly (macOS / Linux)
@@ -82,7 +81,7 @@ python3 -m http.server 8080
 This site is deployed automatically via GitHub Pages from the `main` branch.
 
 Any push to `main` goes live within ~60 seconds at:
-`https://techbaseng.github.io/ai-studio-android-guide`
+`https://github.com/babatundeawo/ai-studio-android-guide`
 
 A redirect stub also lives at `babatundeawo/ai-studio-android-guide` for anyone arriving via the old personal-account link.
 
