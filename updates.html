@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fafafa">
+<meta name="description" content="The exact SOP to follow when updating your app so an AI Studio export never breaks your live site.">
+<title>Update Workflow — AI Studio → Android Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="progress-bar"></div>
+
+<!-- ── SIDEBAR ── -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <div class="brand-chip"><span>◈</span> Techbase</div>
+    <a href="index.html" style="text-decoration:none;"><div class="brand-title">AI Studio →<br>Android Guide</div></a>
+    <div class="brand-meta">
+      <span class="mini-badge mb-cyan">v3.0</span>
+      <span class="mini-badge mb-green">Aug 2026</span>
+      <span class="mini-badge mb-yellow">45–60 min</span>
+    </div>
+  </div>
+
+  <div class="sidebar-search">
+    <span class="s-icon">🔍</span>
+    <input type="text" placeholder="Filter sections…" oninput="filterNav(this)">
+  </div>
+
+  <div class="theme-toggle" id="theme-toggle">
+    <span class="tt-icon">🌙</span><span class="tt-label">Dark mode</span>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Overview</div>
+    <a class="nav-item" href="index.html"><span class="nav-dot"></span>Introduction &amp; Hub</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Setup — Part 1–3</div>
+    <a class="nav-item" href="accounts.html"><span class="nav-dot"></span>Account Setup</a>
+    <a class="nav-item" href="build.html"><span class="nav-dot"></span>Build in AI Studio</a>
+    <a class="nav-item" href="github.html"><span class="nav-dot"></span>GitHub Bridge</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Deployment — Part 4–6</div>
+    <a class="nav-item" href="vercel.html"><span class="nav-dot"></span>Deploy to Vercel</a>
+    <a class="nav-item" href="android.html"><span class="nav-dot"></span>Install on Android</a>
+    <a class="nav-item" href="updates.html"><span class="nav-dot"></span>Update Workflow</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Reference</div>
+    <a class="nav-item" href="troubleshoot.html"><span class="nav-dot"></span>Troubleshooting</a>
+    <a class="nav-item" href="tips.html"><span class="nav-dot"></span>Best Practices</a>
+    <a class="nav-item" href="glossary.html"><span class="nav-dot"></span>Glossary &amp; Appendix</a>
+  </div>
+
+  <div style="margin-top:auto; padding:16px 20px 20px; font-family:var(--font-mono); font-size:10px; color:var(--text3); border-top:1px solid var(--border);">
+    <a href="https://github.com/babatundeawo/ai-studio-android-guide" style="color:var(--text3);">↗ View source on GitHub</a>
+  </div>
+</nav>
+
+<!-- ── MOBILE BAR ── -->
+<div class="mobile-bar">
+  <button class="menu-toggle" onclick="toggleNav()">☰</button>
+  <span class="mobile-logo">AI Studio → Android</span>
+</div>
+<div class="main">
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Guide</a><span class="sep">/</span><span>Part 6</span></div>
+  <div class="freshness-note">✓ Reviewed August 2026</div>
+</div>
+
+<section class="doc-section revealed" id="updates">
+  <div class="section-eyebrow">
+    <span class="section-part">Part 6</span>
+    <div class="section-divider"></div>
+    <span class="section-num">Steps 21–23</span>
+  </div>
+  <h2 class="section-title">Update <span class="hl">Workflow</span></h2>
+  <p class="section-sub">Understanding this SOP will save you hours of frustration every time you push changes.</p>
+
+  <div class="alert a-warn" style="margin-bottom:32px;"><span class="alert-icon">⚠️</span><div class="alert-body"><strong>Known Issue:</strong> When you update your app in AI Studio and export to GitHub again, the agent can occasionally regenerate <code>index.html</code> without the critical <code>&lt;script&gt;</code> tag or manifest link. This causes a blank page. The SOP below prevents it.</div></div>
+
+  <div class="sop-chain">
+    <div class="sop-item sop-1">
+      <div class="sop-left"><div class="sop-circle">1</div></div>
+      <div class="sop-right"><h4>Make Changes in AI Studio</h4><p>Update your app's features, AI behaviour, or interface by chatting with the Build agent or editing code directly. Test thoroughly in the live preview before doing anything else.</p></div>
+    </div>
+    <div class="sop-item sop-2">
+      <div class="sop-left"><div class="sop-circle">2</div></div>
+      <div class="sop-right">
+        <h4>Re-check Critical Files in AI Studio — BEFORE Exporting</h4>
+        <p>Verify <code>index.html</code> still has the script tag. If missing, add it back now:</p>
+        <div class="code-block"><div class="code-header"><div class="code-dots"><span class="cd1"></span><span class="cd2"></span><span class="cd3"></span></div><span class="code-label">html · must be present</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div><pre><code><span class="tag-c">&lt;script</span> <span class="attr">type</span>=<span class="str">"module"</span> <span class="attr">src</span>=<span class="str">"/index.tsx"</span><span class="tag-c">&gt;&lt;/script&gt;</span></code></pre></div>
+        <p>Also verify <code>manifest.json</code> is still present and correct.</p>
+      </div>
+    </div>
+    <div class="sop-item sop-3">
+      <div class="sop-left"><div class="sop-circle">3</div></div>
+      <div class="sop-right"><h4>Export to GitHub</h4><p>Click "Export to GitHub" in AI Studio. Wait for the commit confirmation before proceeding.</p></div>
+    </div>
+    <div class="sop-item sop-4">
+      <div class="sop-left"><div class="sop-circle">4</div></div>
+      <div class="sop-right"><h4>Verify on GitHub (If Unsure)</h4><p>Open your repo and check <code>index.html</code>. If the script tag is missing, edit the file directly on GitHub, add it back, and commit with: <code>Restore script tag after AI Studio update</code></p></div>
+    </div>
+    <div class="sop-item sop-5">
+      <div class="sop-left"><div class="sop-circle">5</div></div>
+      <div class="sop-right"><h4>Wait for Auto-Deploy (1–2 min)</h4><p>Vercel detects the commit and automatically rebuilds. Monitor progress in your Vercel dashboard. Your installed Android app will reflect the update after a refresh or restart — Chrome updates installed PWAs in the background on a normal cache cycle.</p></div>
+    </div>
+  </div>
+
+  <div style="margin-top:32px;">
+    <h3 style="font-family:var(--font-display); font-size:1.1rem; color:var(--text); margin-bottom:16px; display:flex; align-items:center; gap:10px;"><span style="width:4px; height:18px; background:var(--grad-main); border-radius:2px; display:inline-block;"></span>Advanced: Git CLI Workflow</h3>
+    <div class="code-block">
+      <div class="code-header"><div class="code-dots"><span class="cd1"></span><span class="cd2"></span><span class="cd3"></span></div><span class="code-label">bash</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <pre><code><span class="com"># Clone your repo locally</span>
+<span class="fn">git</span> clone https://github.com/your-username/your-repo.git
+<span class="kw">cd</span> your-repo
+
+<span class="com"># After AI Studio pushes an update</span>
+<span class="fn">git</span> pull origin main
+
+<span class="com"># Check and fix index.html if needed, then:</span>
+<span class="fn">git</span> add index.html
+<span class="fn">git</span> commit -m <span class="str">"Restore script tag after AI Studio update"</span>
+<span class="fn">git</span> push origin main</code></pre>
+    </div>
+  </div>
+</section>
+
+<div class="page-pager">
+  <a class="pager-link" href="android.html"><span class="pager-eyebrow">← Part 5</span><span class="pager-title">Install on Android</span></a>
+  <a class="pager-link next" href="troubleshoot.html"><span class="pager-eyebrow">Reference →</span><span class="pager-title">Troubleshooting</span></a>
+</div>
+
+</div><!-- end .main -->
+<footer>
+  <span>// <span>Techbase Consultant Services</span> · Educational Reference</span>
+  <div class="f-right">
+    <span>v3.0 · Aug 2026</span>
+    <span>Maintained by: <span>Lead Consultant</span></span>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>

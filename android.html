@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fafafa">
+<meta name="description" content="Install your deployed AI app as a Progressive Web App on Android using Chrome.">
+<title>Install on Android — AI Studio → Android Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="progress-bar"></div>
+
+<!-- ── SIDEBAR ── -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <div class="brand-chip"><span>◈</span> Techbase</div>
+    <a href="index.html" style="text-decoration:none;"><div class="brand-title">AI Studio →<br>Android Guide</div></a>
+    <div class="brand-meta">
+      <span class="mini-badge mb-cyan">v3.0</span>
+      <span class="mini-badge mb-green">Aug 2026</span>
+      <span class="mini-badge mb-yellow">45–60 min</span>
+    </div>
+  </div>
+
+  <div class="sidebar-search">
+    <span class="s-icon">🔍</span>
+    <input type="text" placeholder="Filter sections…" oninput="filterNav(this)">
+  </div>
+
+  <div class="theme-toggle" id="theme-toggle">
+    <span class="tt-icon">🌙</span><span class="tt-label">Dark mode</span>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Overview</div>
+    <a class="nav-item" href="index.html"><span class="nav-dot"></span>Introduction &amp; Hub</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Setup — Part 1–3</div>
+    <a class="nav-item" href="accounts.html"><span class="nav-dot"></span>Account Setup</a>
+    <a class="nav-item" href="build.html"><span class="nav-dot"></span>Build in AI Studio</a>
+    <a class="nav-item" href="github.html"><span class="nav-dot"></span>GitHub Bridge</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Deployment — Part 4–6</div>
+    <a class="nav-item" href="vercel.html"><span class="nav-dot"></span>Deploy to Vercel</a>
+    <a class="nav-item" href="android.html"><span class="nav-dot"></span>Install on Android</a>
+    <a class="nav-item" href="updates.html"><span class="nav-dot"></span>Update Workflow</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Reference</div>
+    <a class="nav-item" href="troubleshoot.html"><span class="nav-dot"></span>Troubleshooting</a>
+    <a class="nav-item" href="tips.html"><span class="nav-dot"></span>Best Practices</a>
+    <a class="nav-item" href="glossary.html"><span class="nav-dot"></span>Glossary &amp; Appendix</a>
+  </div>
+
+  <div style="margin-top:auto; padding:16px 20px 20px; font-family:var(--font-mono); font-size:10px; color:var(--text3); border-top:1px solid var(--border);">
+    <a href="https://github.com/babatundeawo/ai-studio-android-guide" style="color:var(--text3);">↗ View source on GitHub</a>
+  </div>
+</nav>
+
+<!-- ── MOBILE BAR ── -->
+<div class="mobile-bar">
+  <button class="menu-toggle" onclick="toggleNav()">☰</button>
+  <span class="mobile-logo">AI Studio → Android</span>
+</div>
+<div class="main">
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Guide</a><span class="sep">/</span><span>Part 5</span></div>
+  <div class="freshness-note">✓ Reviewed August 2026</div>
+</div>
+
+<section class="doc-section revealed" id="android">
+  <div class="section-eyebrow">
+    <span class="section-part">Part 5</span>
+    <div class="section-divider"></div>
+    <span class="section-num">Steps 17–20</span>
+  </div>
+  <h2 class="section-title">Install on <span class="hl">Android</span></h2>
+  <p class="section-sub">Transform your web app into a native-feeling Android experience with PWA technology.</p>
+
+  <div class="phone-steps">
+    <div class="phone-step"><span class="ps-num">17</span><span class="ps-icon">🌐</span><div class="ps-title">Open in Chrome</div><div class="ps-desc">Open Chrome on your Android device (not other browsers — Chrome has the most reliable PWA support). Navigate to your Vercel URL and wait for the page to fully load.</div></div>
+    <div class="phone-step"><span class="ps-num">18</span><span class="ps-icon">📲</span><div class="ps-title">Install the App</div><div class="ps-desc"><strong>Auto prompt:</strong> Tap "Install app" if a banner appears. <strong>Manual:</strong> Tap ⋮ menu → "Add to Home screen" or "Install app" → confirm. Takes 2–5 seconds.</div></div>
+    <div class="phone-step"><span class="ps-num">19</span><span class="ps-icon">🚀</span><div class="ps-title">Launch &amp; Test</div><div class="ps-desc">Find your icon on the home screen (labeled with your manifest's <code>short_name</code>). Tap it — the app opens in standalone mode with no browser address bar.</div></div>
+    <div class="phone-step"><span class="ps-num">20</span><span class="ps-icon">📂</span><div class="ps-title">App Drawer Access</div><div class="ps-desc">Your app also appears in the Android app drawer (swipe up from home). Long-press the icon for more options (uninstall, app info, move).</div></div>
+  </div>
+
+  <div class="alert a-info" style="margin-top:8px;"><span class="alert-icon">ℹ️</span><div class="alert-body"><strong>Chrome's menu wording varies slightly by Android version.</strong> You may see "Install app," "Add to Home screen," or a combined install sheet with both "Install" and "Create shortcut" options — pick <strong>Install</strong> for the full standalone-app experience with an app-drawer entry; "Create shortcut" just opens the site in a browser tab.</div></div>
+
+  <div class="alert a-ok" style="margin-top:16px;"><span class="alert-icon">🎉</span><div class="alert-body"><strong>You now have a fully functional AI-powered Android app!</strong> Share your Vercel URL with anyone — they can access it in a browser or install it just like you did.</div></div>
+</section>
+
+<div class="page-pager">
+  <a class="pager-link" href="vercel.html"><span class="pager-eyebrow">← Part 4</span><span class="pager-title">Deploy to Vercel</span></a>
+  <a class="pager-link next" href="updates.html"><span class="pager-eyebrow">Part 6 →</span><span class="pager-title">Update Workflow</span></a>
+</div>
+
+</div><!-- end .main -->
+<footer>
+  <span>// <span>Techbase Consultant Services</span> · Educational Reference</span>
+  <div class="f-right">
+    <span>v3.0 · Aug 2026</span>
+    <span>Maintained by: <span>Lead Consultant</span></span>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>

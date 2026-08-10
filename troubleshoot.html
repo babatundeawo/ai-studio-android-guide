@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fafafa">
+<meta name="description" content="Fixes for the most common blank-page, API key, build, and Android install issues.">
+<title>Troubleshooting — AI Studio → Android Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="progress-bar"></div>
+
+<!-- ── SIDEBAR ── -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <div class="brand-chip"><span>◈</span> Techbase</div>
+    <a href="index.html" style="text-decoration:none;"><div class="brand-title">AI Studio →<br>Android Guide</div></a>
+    <div class="brand-meta">
+      <span class="mini-badge mb-cyan">v3.0</span>
+      <span class="mini-badge mb-green">Aug 2026</span>
+      <span class="mini-badge mb-yellow">45–60 min</span>
+    </div>
+  </div>
+
+  <div class="sidebar-search">
+    <span class="s-icon">🔍</span>
+    <input type="text" placeholder="Filter sections…" oninput="filterNav(this)">
+  </div>
+
+  <div class="theme-toggle" id="theme-toggle">
+    <span class="tt-icon">🌙</span><span class="tt-label">Dark mode</span>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Overview</div>
+    <a class="nav-item" href="index.html"><span class="nav-dot"></span>Introduction &amp; Hub</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Setup — Part 1–3</div>
+    <a class="nav-item" href="accounts.html"><span class="nav-dot"></span>Account Setup</a>
+    <a class="nav-item" href="build.html"><span class="nav-dot"></span>Build in AI Studio</a>
+    <a class="nav-item" href="github.html"><span class="nav-dot"></span>GitHub Bridge</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Deployment — Part 4–6</div>
+    <a class="nav-item" href="vercel.html"><span class="nav-dot"></span>Deploy to Vercel</a>
+    <a class="nav-item" href="android.html"><span class="nav-dot"></span>Install on Android</a>
+    <a class="nav-item" href="updates.html"><span class="nav-dot"></span>Update Workflow</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Reference</div>
+    <a class="nav-item" href="troubleshoot.html"><span class="nav-dot"></span>Troubleshooting</a>
+    <a class="nav-item" href="tips.html"><span class="nav-dot"></span>Best Practices</a>
+    <a class="nav-item" href="glossary.html"><span class="nav-dot"></span>Glossary &amp; Appendix</a>
+  </div>
+
+  <div style="margin-top:auto; padding:16px 20px 20px; font-family:var(--font-mono); font-size:10px; color:var(--text3); border-top:1px solid var(--border);">
+    <a href="https://github.com/babatundeawo/ai-studio-android-guide" style="color:var(--text3);">↗ View source on GitHub</a>
+  </div>
+</nav>
+
+<!-- ── MOBILE BAR ── -->
+<div class="mobile-bar">
+  <button class="menu-toggle" onclick="toggleNav()">☰</button>
+  <span class="mobile-logo">AI Studio → Android</span>
+</div>
+<div class="main">
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Guide</a><span class="sep">/</span><span>Reference</span></div>
+  <div class="freshness-note">✓ Reviewed August 2026</div>
+</div>
+
+<section class="doc-section revealed" id="troubleshoot">
+  <div class="section-eyebrow">
+    <span class="section-part">Reference</span>
+    <div class="section-divider"></div>
+    <span class="section-num">7 Issues</span>
+  </div>
+  <h2 class="section-title"><span class="hl">Trouble</span>shooting</h2>
+  <p class="section-sub">Diagnose and fix the most common deployment issues.</p>
+
+  <!-- Visual flowchart -->
+  <div class="flowchart">
+    <div class="flowchart-inner">
+      <div class="fc-node fc-start">🔴 Problem: App doesn't work</div>
+      <div style="height:24px; width:2px; background:var(--border2); margin:0 auto;"></div>
+      <div class="fc-node fc-check">Is the page blank?</div>
+      <div style="display:flex; width:100%; justify-content:center; margin:0;">
+        <div style="display:flex; flex-direction:column; align-items:center; width:50%;">
+          <div style="height:2px; width:50%; background:var(--border2); margin-left:auto;"></div>
+          <div style="display:flex; width:100%; justify-content:flex-end; padding-right:4px;">
+            <span class="fc-label fc-yes">YES</span>
+          </div>
+          <div style="height:20px; width:2px; background:var(--border2); margin-left:auto; margin-right:25%;"></div>
+          <div class="fc-node fc-action" style="margin-left:auto; margin-right:0; width:90%;">Check index.html → add &lt;script&gt; tag</div>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; width:50%;">
+          <div style="height:2px; width:50%; background:var(--border2); margin-right:auto;"></div>
+          <div style="display:flex; width:100%; padding-left:4px;">
+            <span class="fc-label fc-no">NO</span>
+          </div>
+          <div style="height:20px; width:2px; background:var(--border2); margin-right:auto; margin-left:25%;"></div>
+          <div class="fc-node fc-check" style="margin-right:auto; margin-left:0; width:180px; height:60px;">Do AI features fail?</div>
+          <div style="height:20px; width:2px; background:var(--border2); margin-right:auto; margin-left:25%;"></div>
+          <div class="fc-node fc-action" style="margin-right:auto; width:90%;">Check Vercel env variables (all 4)</div>
+        </div>
+      </div>
+      <div style="height:24px; width:2px; background:var(--border2); margin:12px auto 0;"></div>
+      <div class="fc-node fc-check">Can't install on Android?</div>
+      <div style="height:20px; width:2px; background:var(--border2); margin:0 auto;"></div>
+      <div class="fc-node fc-action">Check manifest.json exists and is valid</div>
+      <div style="height:20px; width:2px; background:var(--border2); margin:0 auto;"></div>
+      <div class="fc-node fc-ok">✅ Problem resolved — check browser console for other errors</div>
+    </div>
+  </div>
+
+  <div class="issues-list">
+    <div class="issue-card">
+      <button class="issue-trigger" onclick="toggleIssue(this)">
+        <span class="iss-badge">Issue 1</span>
+        <span class="iss-title">Blank white page on deployed app</span>
+        <span class="iss-chevron">▼</span>
+      </button>
+      <div class="issue-body">
+        <div class="ib-section"><div class="ib-label">Symptoms</div><ul class="ib-list"><li>App works in AI Studio's preview but shows a blank page on Vercel</li><li>Browser console: "Failed to load resource" errors</li></ul></div>
+        <div class="ib-section"><div class="ib-label">Fix</div><ul class="ib-list"><li>Go to GitHub → open <code>index.html</code> → check that <code>&lt;script type="module" src="/index.tsx"&gt;&lt;/script&gt;</code> is inside <code>&lt;body&gt;</code></li><li>If missing, edit on GitHub, add it back, and commit</li><li>Verify <code>index.tsx</code> or <code>main.tsx</code> exists in the repo root</li><li>Check Vercel's build logs (Deployments tab) for the specific error</li></ul></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <button class="issue-trigger" onclick="toggleIssue(this)">
+        <span class="iss-badge">Issue 2</span>
+        <span class="iss-title">API key invalid / Unauthorized errors</span>
+        <span class="iss-chevron">▼</span>
+      </button>
+      <div class="issue-body">
+        <div class="ib-section"><div class="ib-label">Symptoms</div><ul class="ib-list"><li>App loads but AI features don't work</li><li>Error messages about the API key in the browser console or network tab</li></ul></div>
+        <div class="ib-section"><div class="ib-label">Fix</div><ul class="ib-list"><li>Vercel → Your Project → Settings → Environment Variables</li><li>Verify the variables your code actually reads exist — commonly <code>GEMINI_API_KEY</code>, <code>API_KEY</code>, <code>VITE_API_KEY</code>, and <code>GOOGLE_GENERATIVE_AI_API_KEY</code></li><li>Regenerate the key in AI Studio if needed, and update every variable that holds it</li><li>Redeploy: Vercel → Deployments → ⋯ → Redeploy</li></ul></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <button class="issue-trigger" onclick="toggleIssue(this)">
+        <span class="iss-badge">Issue 3</span>
+        <span class="iss-title">Vercel build fails</span>
+        <span class="iss-chevron">▼</span>
+      </button>
+      <div class="issue-body">
+        <div class="ib-section"><div class="ib-label">Common Errors</div><ul class="ib-list"><li><code>"Cannot find module 'vite'"</code> → ensure <code>package.json</code> includes all dependencies</li><li><code>"Build command failed"</code> → build command must match your project, usually <code>npm run build</code></li><li><code>"Memory limit exceeded"</code> → simplify the app or remove large dependencies</li></ul></div>
+        <div class="ib-section"><div class="ib-label">Fix</div><ul class="ib-list"><li>Click the failed deployment in Vercel and read the error log carefully</li><li>Fix the specific error in your GitHub repository and commit — Vercel auto-redeploys</li></ul></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <button class="issue-trigger" onclick="toggleIssue(this)">
+        <span class="iss-badge">Issue 4</span>
+        <span class="iss-title">App not installable on Android</span>
+        <span class="iss-chevron">▼</span>
+      </button>
+      <div class="issue-body">
+        <div class="ib-section"><div class="ib-label">Symptoms</div><ul class="ib-list"><li>No "Install app" prompt appears in Chrome</li><li>"Add to Home Screen" is greyed out</li></ul></div>
+        <div class="ib-section"><div class="ib-label">Fix</div><ul class="ib-list"><li>Verify <code>manifest.json</code> exists in the root of your GitHub repo</li><li>Confirm <code>index.html</code> has <code>&lt;link rel="manifest" href="/manifest.json"&gt;</code></li><li>Use Chrome specifically — support is most consistent there</li><li>Check Chrome DevTools → Application → Manifest tab for errors</li><li>Your Vercel URL must use HTTPS (it does by default)</li></ul></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <button class="issue-trigger" onclick="toggleIssue(this)">
+        <span class="iss-badge">Issue 5</span>
+        <span class="iss-title">Updates not showing on installed app</span>
+        <span class="iss-chevron">▼</span>
+      </button>
+      <div class="issue-body">
+        <div class="ib-section"><div class="ib-label">Fix</div><ul class="ib-list"><li>Force refresh: open app → pull down to refresh, or close and reopen</li><li>Clear app cache: Android Settings → Apps → Your App → Storage → Clear Cache</li><li>Reinstall: uninstall, visit the Vercel URL in Chrome, reinstall a fresh copy</li></ul></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <button class="issue-trigger" onclick="toggleIssue(this)">
+        <span class="iss-badge">Issue 6</span>
+        <span class="iss-title">Can't connect Vercel to GitHub</span>
+        <span class="iss-chevron">▼</span>
+      </button>
+      <div class="issue-body">
+        <div class="ib-section"><div class="ib-label">Fix</div><ul class="ib-list"><li>Go to <a href="https://github.com/settings/installations">github.com/settings/installations</a></li><li>Find "Vercel" → Configure → grant access to your repositories → Save</li><li>Return to Vercel and try importing again</li></ul></div>
+      </div>
+    </div>
+
+    <div class="issue-card">
+      <button class="issue-trigger" onclick="toggleIssue(this)">
+        <span class="iss-badge">Issue 7</span>
+        <span class="iss-title">API key shows as "Blocked" in AI Studio</span>
+        <span class="iss-chevron">▼</span>
+      </button>
+      <div class="issue-body">
+        <div class="ib-section"><div class="ib-label">Symptoms</div><ul class="ib-list"><li>A key you haven't used in a while shows a "Blocked" tag on the AI Studio API Keys page</li><li>Requests using that key start failing with an authorization error</li></ul></div>
+        <div class="ib-section"><div class="ib-label">Fix</div><ul class="ib-list"><li>Google now blocks unrestricted API keys that sit dormant for an extended period as a security measure</li><li>Open the AI Studio API Keys page and click <strong>Create API key</strong> to generate a new one — new keys are created with the current recommended restrictions automatically</li><li>Update every environment variable that referenced the old key, in Vercel and anywhere else it's used, then redeploy</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page-pager">
+  <a class="pager-link" href="updates.html"><span class="pager-eyebrow">← Part 6</span><span class="pager-title">Update Workflow</span></a>
+  <a class="pager-link next" href="tips.html"><span class="pager-eyebrow">Reference →</span><span class="pager-title">Best Practices</span></a>
+</div>
+
+</div><!-- end .main -->
+<footer>
+  <span>// <span>Techbase Consultant Services</span> · Educational Reference</span>
+  <div class="f-right">
+    <span>v3.0 · Aug 2026</span>
+    <span>Maintained by: <span>Lead Consultant</span></span>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>
