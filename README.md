@@ -2,6 +2,8 @@
 
 > A professional, interactive, multi-page web guide for deploying Google AI Studio projects as installable Android PWAs.
 
+**Live:** https://babatundeawo.github.io/ai-studio-android-guide/
+
 ## What This Is
 
 A comprehensive step-by-step deployment guide that walks developers through the full pipeline:
