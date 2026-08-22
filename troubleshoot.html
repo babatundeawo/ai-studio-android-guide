@@ -93,24 +93,24 @@
       <div class="fc-node fc-start">🔴 Problem: App doesn't work</div>
       <div style="height:24px; width:2px; background:var(--border2); margin:0 auto;"></div>
       <div class="fc-node fc-check">Is the page blank?</div>
-      <div style="display:flex; width:100%; justify-content:center; margin:0;">
-        <div style="display:flex; flex-direction:column; align-items:center; width:50%;">
-          <div style="height:2px; width:50%; background:var(--border2); margin-left:auto;"></div>
-          <div style="display:flex; width:100%; justify-content:flex-end; padding-right:4px;">
+      <div class="fc-branches">
+        <div class="fc-branch-col fc-branch-yes">
+          <div class="fc-branch-connector"></div>
+          <div class="fc-branch-label-row fc-branch-label-yes">
             <span class="fc-label fc-yes">YES</span>
           </div>
-          <div style="height:20px; width:2px; background:var(--border2); margin-left:auto; margin-right:25%;"></div>
-          <div class="fc-node fc-action" style="margin-left:auto; margin-right:0; width:90%;">Check index.html → add &lt;script&gt; tag</div>
+          <div class="fc-branch-drop"></div>
+          <div class="fc-node fc-action fc-branch-node">Check index.html → add &lt;script&gt; tag</div>
         </div>
-        <div style="display:flex; flex-direction:column; align-items:center; width:50%;">
-          <div style="height:2px; width:50%; background:var(--border2); margin-right:auto;"></div>
-          <div style="display:flex; width:100%; padding-left:4px;">
+        <div class="fc-branch-col fc-branch-no">
+          <div class="fc-branch-connector"></div>
+          <div class="fc-branch-label-row fc-branch-label-no">
             <span class="fc-label fc-no">NO</span>
           </div>
-          <div style="height:20px; width:2px; background:var(--border2); margin-right:auto; margin-left:25%;"></div>
-          <div class="fc-node fc-check" style="margin-right:auto; margin-left:0; width:180px; height:60px;">Do AI features fail?</div>
-          <div style="height:20px; width:2px; background:var(--border2); margin-right:auto; margin-left:25%;"></div>
-          <div class="fc-node fc-action" style="margin-right:auto; width:90%;">Check Vercel env variables (all 4)</div>
+          <div class="fc-branch-drop"></div>
+          <div class="fc-node fc-check fc-branch-check">Do AI features fail?</div>
+          <div class="fc-branch-drop"></div>
+          <div class="fc-node fc-action fc-branch-node">Check Vercel env variables (all 4)</div>
         </div>
       </div>
       <div style="height:24px; width:2px; background:var(--border2); margin:12px auto 0;"></div>
