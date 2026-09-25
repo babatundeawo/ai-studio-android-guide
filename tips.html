@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#fafafa">
 <meta name="description" content="Security, version control, performance, and accessibility best practices, plus current free-tier limits.">
-<title>Best Practices __TITLE__ Pro Tips — AI Studio → Android Guide</title>
+<title>Best Practices &amp; Pro Tips — AI Studio → Android Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,8 +20,8 @@
     <div class="brand-chip"><span>◈</span> Techbase</div>
     <a href="index.html" style="text-decoration:none;"><div class="brand-title">AI Studio →<br>Android Guide</div></a>
     <div class="brand-meta">
-      <span class="mini-badge mb-cyan">v3.0</span>
-      <span class="mini-badge mb-green">Aug 2026</span>
+      <span class="mini-badge mb-cyan">v4.0</span>
+      <span class="mini-badge mb-green">Sep 2026</span>
       <span class="mini-badge mb-yellow">45–60 min</span>
     </div>
   </div>
@@ -50,6 +50,7 @@
   <div class="nav-section">
     <div class="nav-label">Deployment — Part 4–6</div>
     <a class="nav-item" href="vercel.html"><span class="nav-dot"></span>Deploy to Vercel</a>
+    <a class="nav-item" href="replit.html"><span class="nav-dot"></span>Deploy to Replit</a>
     <a class="nav-item" href="android.html"><span class="nav-dot"></span>Install on Android</a>
     <a class="nav-item" href="updates.html"><span class="nav-dot"></span>Update Workflow</a>
   </div>
@@ -75,7 +76,7 @@
 
 <div class="page-hero">
   <div class="breadcrumb"><a href="index.html">Guide</a><span class="sep">/</span><span>Reference</span></div>
-  <div class="freshness-note">✓ Free-tier figures verified against current provider documentation, August 2026</div>
+  <div class="freshness-note">✓ Free-tier figures verified against current provider documentation, September 2026</div>
 </div>
 
 <section class="doc-section revealed" id="tips">
@@ -97,8 +98,12 @@
   <h3 id="tier-table" style="font-family:var(--font-display); font-size:1.1rem; color:var(--text); margin: 32px 0 16px; display:flex; align-items:center; gap:10px;"><span style="width:4px; height:18px; background:var(--grad-main); border-radius:2px; display:inline-block;"></span>Free Tier Limits</h3>
   <table class="tier-table">
     <tr><th>Service</th><th>Free Tier Includes</th></tr>
-    <tr><td>Google AI Studio / Gemini API</td><td>Free API access for development and testing at published rate limits — check <a href="https://ai.google.dev/pricing">ai.google.dev/pricing</a> for the current per-model limits, since they vary by model and change over time. No billing setup required for basic use.</td></tr>
-    <tr><td>Vercel (Hobby plan)</td><td>Roughly 100 GB bandwidth/month · around 1 million function invocations · automatic HTTPS · unlimited deployments — for non-commercial personal projects only. Confirm current numbers at <a href="https://vercel.com/docs/limits">vercel.com/docs/limits</a> before relying on them.</td></tr>
+    <tr><td>Google AI Studio / Gemini API</td><td>Free API access on Flash-tier models, with compute-based usage limits that refresh roughly every 5 hours — check <a href="https://ai.google.dev/pricing">ai.google.dev/pricing</a> for the current per-model limits, since they vary by model and change over time. No billing setup required for basic use.</td></tr>
+    <tr><td>Google Cloud Run (via AI Studio's Starter Tier)</td><td>Publish up to 2 apps straight from AI Studio with no billing account — beyond that, standard Cloud Run free tier pricing applies per project. See <a href="build.html#publish">Part 2</a>.</td></tr>
+    <tr><td>Vercel (Hobby plan)</td><td>100 GB Fast Data Transfer/month · 1,000,000 function invocations · up to 200 projects · automatic HTTPS — for non-commercial personal projects only. Confirm current numbers at <a href="https://vercel.com/docs/plans/hobby">vercel.com/docs/plans/hobby</a> before relying on them.</td></tr>
+    <tr><td>Replit (Static Deployments)</td><td>Free hosting on every plan, including the free tier — no commercial-use restriction. Data transfer allowance scales with your plan (100 GiB/month on Core); overage is billed per GB beyond that.</td></tr>
+    <tr><td>Netlify (Free/Starter plan)</td><td>Roughly 100 GB bandwidth and 300 build minutes/month · commercial use allowed, unlike Vercel Hobby.</td></tr>
+    <tr><td>Cloudflare Pages (Free plan)</td><td>Unlimited bandwidth · 500 builds/month · a strong pick if you expect meaningful traffic on a free tier.</td></tr>
     <tr><td>GitHub (Free plan)</td><td>Unlimited public repositories · 2,000 GitHub Actions minutes/month on private repos (public repos are unmetered) · private repos with a reduced feature set · GitHub Pages on public repos.</td></tr>
   </table>
 
@@ -114,7 +119,7 @@
 <footer>
   <span>// <span>Techbase Consultant Services</span> · Educational Reference</span>
   <div class="f-right">
-    <span>v3.0 · Aug 2026</span>
+    <span>v4.0 · Sep 2026</span>
     <span>Maintained by: <span>Lead Consultant</span></span>
   </div>
 </footer>

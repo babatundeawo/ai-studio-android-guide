@@ -20,8 +20,8 @@
     <div class="brand-chip"><span>◈</span> Techbase</div>
     <a href="index.html" style="text-decoration:none;"><div class="brand-title">AI Studio →<br>Android Guide</div></a>
     <div class="brand-meta">
-      <span class="mini-badge mb-cyan">v3.0</span>
-      <span class="mini-badge mb-green">Aug 2026</span>
+      <span class="mini-badge mb-cyan">v4.0</span>
+      <span class="mini-badge mb-green">Sep 2026</span>
       <span class="mini-badge mb-yellow">45–60 min</span>
     </div>
   </div>
@@ -50,6 +50,7 @@
   <div class="nav-section">
     <div class="nav-label">Deployment — Part 4–6</div>
     <a class="nav-item" href="vercel.html"><span class="nav-dot"></span>Deploy to Vercel</a>
+    <a class="nav-item" href="replit.html"><span class="nav-dot"></span>Deploy to Replit</a>
     <a class="nav-item" href="android.html"><span class="nav-dot"></span>Install on Android</a>
     <a class="nav-item" href="updates.html"><span class="nav-dot"></span>Update Workflow</a>
   </div>
@@ -75,19 +76,21 @@
 
 <div class="page-hero">
   <div class="breadcrumb"><a href="index.html">Guide</a><span class="sep">/</span><span>Part 2</span></div>
-  <div class="freshness-note">✓ Reviewed August 2026 — reflects AI Studio's current Build mode</div>
+  <div class="freshness-note">✓ Reviewed September 2026 — Build mode now runs on the Antigravity Agent</div>
 </div>
 
 <section class="doc-section revealed" id="build">
   <div class="section-eyebrow">
     <span class="section-part">Part 2</span>
     <div class="section-divider"></div>
-    <span class="section-num">Steps 4–6</span>
+    <span class="section-num">Steps 4–6B</span>
   </div>
   <h2 class="section-title">Build Your App in <span class="hl">AI Studio</span></h2>
   <p class="section-sub">Describe your idea, let Gemini build it, test it thoroughly — then prepare it for deployment.</p>
 
-  <div class="alert a-ok" style="margin-bottom:32px;"><span class="alert-icon">✅</span><div class="alert-body"><strong>Good news!</strong>You don't need to set up Google Cloud manually. When you start a new app in AI Studio's <strong>Build</strong> mode, a <code>GEMINI_API_KEY</code> is automatically generated and stored as a server-side secret for you — visible any time in the Secrets panel under Settings.</div></div>
+  <div class="alert a-ok" style="margin-bottom:20px;"><span class="alert-icon">✅</span><div class="alert-body"><strong>Good news!</strong>You don't need to set up Google Cloud manually. When you start a new app in AI Studio's <strong>Build</strong> mode, a <code>GEMINI_API_KEY</code> is automatically generated and stored as a server-side secret for you — visible any time in the Secrets panel under Settings.</div></div>
+
+  <div class="alert a-info" style="margin-bottom:32px;"><span class="alert-icon">🤖</span><div class="alert-body"><strong>What changed:</strong> Build mode is now powered by the same agent harness behind Google Antigravity. It tracks your whole project across files rather than one prompt at a time, and verifies its own edits before showing them to you — fewer half-broken files after a big change. One current limitation worth knowing: as of September 2026, Build mode's agent works with Gemini's Flash-tier models only; Pro-tier models remain available in Chat/Playground mode but not inside Build. This is a fast-moving limit — check the model picker in Build mode for what's current when you start.</div></div>
 
   <div class="steps-container">
     <div class="step-item">
@@ -96,6 +99,7 @@
         <div class="step-header"><span class="step-title">Access Google AI Studio's Build Mode</span></div>
         <div class="step-content">
           <p>Go to <a href="https://aistudio.google.com">aistudio.google.com</a> and sign in with your Gmail account. Select <strong>Build</strong> in the left sidebar — this opens the agentic app builder, where Gemini writes, previews, and iterates on a full Vite + React + TypeScript project for you inside the browser.</p>
+          <div class="alert a-info"><span class="alert-icon">📱</span><div class="alert-body"><strong>New: native Android apps, no GitHub/Vercel needed.</strong> Build mode also has a <strong>Build an Android app</strong> option that generates a real Kotlin + Jetpack Compose project instead of a web app, previewed on-device via QR code. If your end goal is purely "an app on my phone" rather than a URL you can also share on desktop, this is the most direct route — connect your Google Play Developer account and publish straight to Play's Internal Test track with one click. It doesn't yet support Firebase Auth inside AI Studio itself, so sign-in-heavy apps still need the web + PWA pipeline this guide walks through, or a follow-up session in Android Studio. The rest of this guide covers the web-app path.</div></div>
         </div>
       </div>
     </div>
@@ -130,6 +134,17 @@
         </div>
       </div>
     </div>
+
+    <div class="step-item" id="publish">
+      <div class="step-spine"><div class="step-num">6B</div></div>
+      <div class="step-body">
+        <div class="step-header"><span class="step-title">Optional Shortcut: Publish Straight from AI Studio</span><span class="step-tag tag-ok">Fastest path</span></div>
+        <div class="step-content">
+          <p>Before heading to GitHub, know that AI Studio has its own one-click deploy: click <strong>Publish</strong> in the top bar, then <strong>Get started</strong>. Under the <strong>Google Cloud Starter Tier</strong>, your first two apps deploy straight to Cloud Run with no billing account or Google Cloud project setup — you get a live, HTTPS <code>*.run.app</code> (or custom) URL in a minute or two, and can jump directly to <a href="android.html">Part 5 — Install on Android</a>.</p>
+          <div class="alert a-warn"><span class="alert-icon">⚠️</span><div class="alert-body"><strong>Why this guide still walks through GitHub and Vercel/Replit.</strong> The Starter Tier caps you at two deployed apps total, on a single Cloud Run region, and isn't available if you've ever set up Google Cloud billing before. The GitHub route in Parts 3–4 gives you version history, unlimited projects, custom domains, and a repo you can hand-edit or move between hosts — worth the extra ten minutes for anything beyond a quick experiment. Use whichever fits what you're building; both produce an installable PWA.</div></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -142,7 +157,7 @@
 <footer>
   <span>// <span>Techbase Consultant Services</span> · Educational Reference</span>
   <div class="f-right">
-    <span>v3.0 · Aug 2026</span>
+    <span>v4.0 · Sep 2026</span>
     <span>Maintained by: <span>Lead Consultant</span></span>
   </div>
 </footer>

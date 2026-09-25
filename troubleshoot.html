@@ -20,8 +20,8 @@
     <div class="brand-chip"><span>◈</span> Techbase</div>
     <a href="index.html" style="text-decoration:none;"><div class="brand-title">AI Studio →<br>Android Guide</div></a>
     <div class="brand-meta">
-      <span class="mini-badge mb-cyan">v3.0</span>
-      <span class="mini-badge mb-green">Aug 2026</span>
+      <span class="mini-badge mb-cyan">v4.0</span>
+      <span class="mini-badge mb-green">Sep 2026</span>
       <span class="mini-badge mb-yellow">45–60 min</span>
     </div>
   </div>
@@ -50,6 +50,7 @@
   <div class="nav-section">
     <div class="nav-label">Deployment — Part 4–6</div>
     <a class="nav-item" href="vercel.html"><span class="nav-dot"></span>Deploy to Vercel</a>
+    <a class="nav-item" href="replit.html"><span class="nav-dot"></span>Deploy to Replit</a>
     <a class="nav-item" href="android.html"><span class="nav-dot"></span>Install on Android</a>
     <a class="nav-item" href="updates.html"><span class="nav-dot"></span>Update Workflow</a>
   </div>
@@ -75,14 +76,14 @@
 
 <div class="page-hero">
   <div class="breadcrumb"><a href="index.html">Guide</a><span class="sep">/</span><span>Reference</span></div>
-  <div class="freshness-note">✓ Reviewed August 2026</div>
+  <div class="freshness-note">✓ Reviewed September 2026</div>
 </div>
 
 <section class="doc-section revealed" id="troubleshoot">
   <div class="section-eyebrow">
     <span class="section-part">Reference</span>
     <div class="section-divider"></div>
-    <span class="section-num">7 Issues</span>
+    <span class="section-num">8 Issues</span>
   </div>
   <h2 class="section-title"><span class="hl">Trouble</span>shooting</h2>
   <p class="section-sub">Diagnose and fix the most common deployment issues.</p>
@@ -167,7 +168,7 @@
       </button>
       <div class="issue-body">
         <div class="ib-section"><div class="ib-label">Symptoms</div><ul class="ib-list"><li>No "Install app" prompt appears in Chrome</li><li>"Add to Home Screen" is greyed out</li></ul></div>
-        <div class="ib-section"><div class="ib-label">Fix</div><ul class="ib-list"><li>Verify <code>manifest.json</code> exists in the root of your GitHub repo</li><li>Confirm <code>index.html</code> has <code>&lt;link rel="manifest" href="/manifest.json"&gt;</code></li><li>Use Chrome specifically — support is most consistent there</li><li>Check Chrome DevTools → Application → Manifest tab for errors</li><li>Your Vercel URL must use HTTPS (it does by default)</li></ul></div>
+        <div class="ib-section"><div class="ib-label">Fix</div><ul class="ib-list"><li>Verify <code>manifest.json</code> exists in the root of your GitHub repo</li><li>Confirm <code>index.html</code> has <code>&lt;link rel="manifest" href="/manifest.json"&gt;</code></li><li>Use Chrome specifically — support is most consistent there</li><li>Check Chrome DevTools → Application → Manifest tab for errors</li><li>Your deployment URL must use HTTPS — Vercel, Replit, Netlify, Cloudflare Pages, and Cloud Run all provide this by default</li></ul></div>
       </div>
     </div>
 
@@ -204,6 +205,18 @@
         <div class="ib-section"><div class="ib-label">Fix</div><ul class="ib-list"><li>Google now blocks unrestricted API keys that sit dormant for an extended period as a security measure</li><li>Open the AI Studio API Keys page and click <strong>Create API key</strong> to generate a new one — new keys are created with the current recommended restrictions automatically</li><li>Update every environment variable that referenced the old key, in Vercel and anywhere else it's used, then redeploy</li></ul></div>
       </div>
     </div>
+
+    <div class="issue-card">
+      <button class="issue-trigger" onclick="toggleIssue(this)">
+        <span class="iss-badge">Issue 8</span>
+        <span class="iss-title">"Failed to create Cloud Run service: quota exceeded" when using AI Studio's Publish button</span>
+        <span class="iss-chevron">▼</span>
+      </button>
+      <div class="issue-body">
+        <div class="ib-section"><div class="ib-label">Symptoms</div><ul class="ib-list"><li>Clicking <strong>Publish → Get started</strong> in Build mode (see <a href="build.html#publish">Part 2</a>) fails with a quota or provisioning error on the Google Cloud Starter Tier</li></ul></div>
+        <div class="ib-section"><div class="ib-label">Fix</div><ul class="ib-list"><li>The Starter Tier caps you at two deployed apps on a single Cloud Run region — delete or unpublish an old test app from the Publish panel if you're at the limit</li><li>If you've ever set up Google Cloud billing on any project, even a different one, you're not eligible for the Starter Tier and will need to link a billing account instead</li><li>If neither applies, this is usually a temporary provisioning issue — wait a few minutes and retry, or fall back to the GitHub + Vercel/Replit path in Parts 3–4B, which has no such cap</li></ul></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -216,7 +229,7 @@
 <footer>
   <span>// <span>Techbase Consultant Services</span> · Educational Reference</span>
   <div class="f-right">
-    <span>v3.0 · Aug 2026</span>
+    <span>v4.0 · Sep 2026</span>
     <span>Maintained by: <span>Lead Consultant</span></span>
   </div>
 </footer>

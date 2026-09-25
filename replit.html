@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fafafa">
+<meta name="description" content="An alternative deployment path — publish your AI Studio export using Replit's free Static Deployments, plus quick notes on Netlify, Cloudflare Pages, and GitHub Pages.">
+<title>Deploy to Replit — AI Studio → Android Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="progress-bar"></div>
+
+<!-- ── SIDEBAR ── -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <div class="brand-chip"><span>◈</span> Techbase</div>
+    <a href="index.html" style="text-decoration:none;"><div class="brand-title">AI Studio →<br>Android Guide</div></a>
+    <div class="brand-meta">
+      <span class="mini-badge mb-cyan">v4.0</span>
+      <span class="mini-badge mb-green">Sep 2026</span>
+      <span class="mini-badge mb-yellow">45–60 min</span>
+    </div>
+  </div>
+
+  <div class="sidebar-search">
+    <span class="s-icon">🔍</span>
+    <input type="text" placeholder="Filter sections…" oninput="filterNav(this)">
+  </div>
+
+  <div class="theme-toggle" id="theme-toggle">
+    <span class="tt-icon">🌙</span><span class="tt-label">Dark mode</span>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Overview</div>
+    <a class="nav-item" href="index.html"><span class="nav-dot"></span>Introduction &amp; Hub</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Setup — Part 1–3</div>
+    <a class="nav-item" href="accounts.html"><span class="nav-dot"></span>Account Setup</a>
+    <a class="nav-item" href="build.html"><span class="nav-dot"></span>Build in AI Studio</a>
+    <a class="nav-item" href="github.html"><span class="nav-dot"></span>GitHub Bridge</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Deployment — Part 4–6</div>
+    <a class="nav-item" href="vercel.html"><span class="nav-dot"></span>Deploy to Vercel</a>
+    <a class="nav-item" href="replit.html"><span class="nav-dot"></span>Deploy to Replit</a>
+    <a class="nav-item" href="android.html"><span class="nav-dot"></span>Install on Android</a>
+    <a class="nav-item" href="updates.html"><span class="nav-dot"></span>Update Workflow</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Reference</div>
+    <a class="nav-item" href="troubleshoot.html"><span class="nav-dot"></span>Troubleshooting</a>
+    <a class="nav-item" href="tips.html"><span class="nav-dot"></span>Best Practices</a>
+    <a class="nav-item" href="glossary.html"><span class="nav-dot"></span>Glossary &amp; Appendix</a>
+  </div>
+
+  <div style="margin-top:auto; padding:16px 20px 20px; font-family:var(--font-mono); font-size:10px; color:var(--text3); border-top:1px solid var(--border);">
+    <a href="https://github.com/babatundeawo/ai-studio-android-guide" style="color:var(--text3);">↗ View source on GitHub</a>
+  </div>
+</nav>
+
+<!-- ── MOBILE BAR ── -->
+<div class="mobile-bar">
+  <button class="menu-toggle" onclick="toggleNav()">☰</button>
+  <span class="mobile-logo">AI Studio → Android</span>
+</div>
+<div class="main">
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Guide</a><span class="sep">/</span><span>Part 4B</span></div>
+  <div class="freshness-note">✓ New in v4.0 — added September 2026</div>
+</div>
+
+<section class="doc-section revealed" id="replit">
+  <div class="section-eyebrow">
+    <span class="section-part">Part 4B</span>
+    <div class="section-divider"></div>
+    <span class="section-num">Alternative path</span>
+  </div>
+  <h2 class="section-title">Deploy to <span class="hl">Replit</span></h2>
+  <p class="section-sub">This is a drop-in alternative to Part 4 — use it instead of Vercel, not in addition to it. Same GitHub repo, different host.</p>
+
+  <div class="alert a-info" style="margin-bottom:32px;"><span class="alert-icon">💡</span><div class="alert-body"><strong>Why you might pick Replit instead of Vercel.</strong> Replit's <strong>Static Deployments</strong> are free on every plan — including the free account tier — with no "non-commercial use only" restriction, which Vercel's Hobby plan has. It's a good fit if you plan to eventually charge for your app, or if you'd rather do all your editing (repo, redeploys, custom domain) in one dashboard. The trade-off: your Gemini API calls happen client-side against a key you embed as a static build variable, so treat that key as public-facing and restrict it accordingly — see the security note in Step R3.</div></div>
+
+  <div class="steps-container">
+    <div class="step-item">
+      <div class="step-spine"><div class="step-num">R1</div><div class="step-connector"></div></div>
+      <div class="step-body">
+        <div class="step-header"><span class="step-title">Create a Replit Account</span></div>
+        <div class="step-content">
+          <p>Go to <a href="https://replit.com">replit.com</a> → <strong>Sign up</strong> → <strong>Continue with GitHub</strong> (recommended, same reasoning as the Vercel step — it links the accounts for you). Free accounts can create and publish Static Deployments with no time limit.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-spine"><div class="step-num">R2</div><div class="step-connector"></div></div>
+      <div class="step-body">
+        <div class="step-header"><span class="step-title">Import Your GitHub Repository</span></div>
+        <div class="step-content">
+          <p>From the Replit home screen, click <strong>Create App</strong> → <strong>Import from GitHub</strong>, and select the repository you exported from AI Studio in Part 3. Replit clones it into a new workspace ("Repl") and detects it's a Vite project automatically.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-spine"><div class="step-num important">R3</div><div class="step-connector"></div></div>
+      <div class="step-body">
+        <div class="step-header"><span class="step-title">Add Your Gemini API Key as a Secret</span><span class="step-tag tag-crit">MOST CRITICAL</span></div>
+        <div class="step-content">
+          <p>Open the <strong>Secrets</strong> tool in the left tool dock (padlock icon). Add a key named <code>GEMINI_API_KEY</code> with your key from AI Studio's API Keys page as the value. Because a static build exposes any variable prefixed for the client bundle, also add <code>VITE_API_KEY</code> with the same value if your code reads it that way — check your <code>src</code> folder for the exact variable name your app uses.</p>
+          <div class="alert a-crit"><span class="alert-icon">🔐</span><div class="alert-body"><strong>Restrict this key.</strong> A key baked into a static, client-side build can be read by anyone who inspects your app's network requests. In Google AI Studio's API Keys page, restrict the key to the Generative Language API only, and keep an eye on usage. This is different from the Vercel/Cloud Run path, where the key stays server-side.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-spine"><div class="step-num">R4</div><div class="step-connector"></div></div>
+      <div class="step-body">
+        <div class="step-header"><span class="step-title">Configure the Static Deployment</span></div>
+        <div class="step-content">
+          <p>Click <strong>Deploy</strong> at the top right, choose <strong>Static</strong>, and set:</p>
+          <div class="code-block">
+            <div class="code-header"><div class="code-dots"><span class="cd1"></span><span class="cd2"></span><span class="cd3"></span></div><span class="code-label">deployment settings</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+            <pre><code>Build command:   npm run build
+Public directory: dist</code></pre>
+          </div>
+          <p>Vite's default output folder is <code>dist</code> — confirm this matches <code>vite.config.ts</code> in your repo before deploying. Static Deployments only serve files; they can't run a backend, which is fine here since your app calls the Gemini API directly from the browser.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-spine"><div class="step-num">R5</div></div>
+      <div class="step-body">
+        <div class="step-header"><span class="step-title">Publish &amp; Go Live</span><span class="step-tag tag-ok">Final click</span></div>
+        <div class="step-content">
+          <p>Click <strong>Deploy</strong>. Replit builds your app and serves it over HTTPS at <code>your-app-name.replit.app</code> — installable as a PWA exactly like a Vercel URL, once Part 3's <code>manifest.json</code> and script tag are in place. Continue to <a href="android.html">Part 5 — Install on Android</a> using this URL instead of your Vercel one.</p>
+          <div class="alert a-info"><span class="alert-icon">📊</span><div class="alert-body"><strong>Free tier reminder:</strong> Static Deployments are free hosting on any Replit plan, including data transfer up to your plan's allocation (100 GiB/month on Core; a smaller allowance on the free tier) before per-GB charges apply. See the comparison table on the <a href="tips.html#tier-table">Best Practices page</a>.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert a-warn" style="margin-top:8px;"><span class="alert-icon">🔄</span><div class="alert-body"><strong>Updating later.</strong> Replit doesn't auto-redeploy on every GitHub push the way Vercel does. After you update your app in AI Studio and export to GitHub again, open your Repl, pull the latest changes (Version Control tab → Pull), and click <strong>Deploy</strong> again to publish the new build.</div></div>
+
+  <h3 style="font-family:var(--font-display); font-size:1.1rem; color:var(--text); margin:40px 0 16px; display:flex; align-items:center; gap:10px;"><span style="width:4px; height:18px; background:var(--grad-main); border-radius:2px; display:inline-block;"></span>Other Static Hosts That Work the Same Way</h3>
+  <p style="margin-bottom:20px;">Any host that can build a Vite project from a GitHub repo and serve static files over HTTPS will work for this pipeline — the manifest and script-tag setup from Part 3 doesn't change. Two more worth knowing:</p>
+
+  <div class="split-panel">
+    <div class="panel-card">
+      <div class="panel-header"><span class="ph-title">Netlify</span><span class="ph-file">Similar to Vercel</span></div>
+      <div class="panel-body">
+        <p>Sign up with <strong>"Continue with GitHub"</strong>, <strong>Add new site → Import an existing project</strong>, pick your repo. Build command <code>npm run build</code>, publish directory <code>dist</code>. Add your key under <strong>Site configuration → Environment variables</strong>. Free tier allows commercial use, unlike Vercel Hobby — around 100 GB bandwidth and 300 build minutes a month.</p>
+      </div>
+    </div>
+    <div class="panel-card">
+      <div class="panel-header"><span class="ph-title">Cloudflare Pages</span><span class="ph-file">Best free bandwidth</span></div>
+      <div class="panel-body">
+        <p>Sign up at <a href="https://pages.cloudflare.com">pages.cloudflare.com</a>, <strong>Connect to Git</strong>, select your repo, same build settings as above. Environment variables live under <strong>Settings → Environment variables</strong>. Cloudflare's free tier has no bandwidth cap, which makes it a strong pick if you expect real traffic.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert a-info" style="margin-top:20px;"><span class="alert-icon">ℹ️</span><div class="alert-body"><strong>Don't forget the built-in option.</strong> Since Google AI Studio's May 2026 update, you can also skip GitHub and a third-party host entirely and click <strong>Publish</strong> directly inside AI Studio's Build mode to deploy to Google Cloud Run — your first two apps are free under the Cloud Run Starter Tier, no billing account required. See <a href="build.html#publish">Part 2</a> for when that's the faster choice.</div></div>
+</section>
+
+<div class="page-pager">
+  <a class="pager-link" href="vercel.html"><span class="pager-eyebrow">← Part 4</span><span class="pager-title">Deploy to Vercel</span></a>
+  <a class="pager-link next" href="android.html"><span class="pager-eyebrow">Part 5 →</span><span class="pager-title">Install on Android</span></a>
+</div>
+
+</div><!-- end .main -->
+<footer>
+  <span>// <span>Techbase Consultant Services</span> · Educational Reference</span>
+  <div class="f-right">
+    <span>v4.0 · Sep 2026</span>
+    <span>Maintained by: <span>Lead Consultant</span></span>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>

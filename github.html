@@ -20,8 +20,8 @@
     <div class="brand-chip"><span>◈</span> Techbase</div>
     <a href="index.html" style="text-decoration:none;"><div class="brand-title">AI Studio →<br>Android Guide</div></a>
     <div class="brand-meta">
-      <span class="mini-badge mb-cyan">v3.0</span>
-      <span class="mini-badge mb-green">Aug 2026</span>
+      <span class="mini-badge mb-cyan">v4.0</span>
+      <span class="mini-badge mb-green">Sep 2026</span>
       <span class="mini-badge mb-yellow">45–60 min</span>
     </div>
   </div>
@@ -50,6 +50,7 @@
   <div class="nav-section">
     <div class="nav-label">Deployment — Part 4–6</div>
     <a class="nav-item" href="vercel.html"><span class="nav-dot"></span>Deploy to Vercel</a>
+    <a class="nav-item" href="replit.html"><span class="nav-dot"></span>Deploy to Replit</a>
     <a class="nav-item" href="android.html"><span class="nav-dot"></span>Install on Android</a>
     <a class="nav-item" href="updates.html"><span class="nav-dot"></span>Update Workflow</a>
   </div>
@@ -75,7 +76,7 @@
 
 <div class="page-hero">
   <div class="breadcrumb"><a href="index.html">Guide</a><span class="sep">/</span><span>Part 3</span></div>
-  <div class="freshness-note">✓ Reviewed August 2026</div>
+  <div class="freshness-note">✓ Reviewed September 2026</div>
 </div>
 
 <section class="doc-section revealed" id="github">
@@ -86,6 +87,8 @@
   </div>
   <h2 class="section-title">The GitHub <span class="hl">"Bridge"</span></h2>
   <p class="section-sub">Critical file configuration before you export to GitHub. Read every word of this section.</p>
+
+  <div class="alert a-info" style="margin-bottom:20px;"><span class="alert-icon">↩️</span><div class="alert-body">Used AI Studio's built-in <strong>Publish</strong> shortcut from <a href="build.html#publish">Part 2</a> instead? You can skip straight to <a href="android.html">Part 5 — Install on Android</a> with that URL. Come back here whenever you want unlimited projects, a custom domain, or a repo you can edit by hand.</div></div>
 
   <div class="alert a-crit" style="margin-bottom:32px;"><span class="alert-icon">🚨</span><div class="alert-body"><strong>Most Important Section — Read Carefully</strong>Before you click "Export to GitHub," two essential files must be correct in AI Studio's Code tab. Skipping this step can leave your deployed app showing a blank page or failing to install on Android.</div></div>
 
@@ -147,8 +150,8 @@
       <div class="step-body">
         <div class="step-header"><span class="step-title">Export Your App to GitHub</span></div>
         <div class="step-content">
-          <p>In AI Studio, look for the GitHub icon and click <strong>"Export to GitHub"</strong> (also shown as "Save to GitHub" in some layouts). If prompted, authorize Google AI Studio's GitHub app. Set a repository name (lowercase + hyphens, e.g. <code>my-ai-app</code>), set visibility to <strong>Public</strong>, and confirm.</p>
-          <p>You'll see a confirmation once the initial commit lands in your new repository.</p>
+          <p>In AI Studio's Code/Preview pane, look for the GitHub icon (cat silhouette) in the header bar and click it — this opens the <strong>Push to GitHub</strong> panel (you may also see it called "Sync with GitHub"). The first time, authorize Google AI Studio's GitHub app when prompted. Set a repository name (lowercase + hyphens, e.g. <code>my-ai-app</code>), set visibility to <strong>Public</strong>, and confirm.</p>
+          <p>You'll see a confirmation once the initial commit lands in your new repository. After this first push, AI Studio keeps a sync link to that same repo, so later updates in <a href="updates.html">Part 6</a> push to it directly rather than creating a new one each time — worth double-checking, since some users have reported the sync occasionally lagging behind; if a later push doesn't show up on GitHub, re-open the GitHub panel and push again.</p>
           <div class="alert a-warn"><span class="alert-icon">🔐</span><div class="alert-body"><strong>Your API key does not travel with the export.</strong> For security, AI Studio does not copy your <code>GEMINI_API_KEY</code> secret into the GitHub repo. You'll add it manually as an environment variable in Vercel in the next part — that's expected, not a bug.</div></div>
         </div>
       </div>
@@ -186,7 +189,7 @@
 <footer>
   <span>// <span>Techbase Consultant Services</span> · Educational Reference</span>
   <div class="f-right">
-    <span>v3.0 · Aug 2026</span>
+    <span>v4.0 · Sep 2026</span>
     <span>Maintained by: <span>Lead Consultant</span></span>
   </div>
 </footer>

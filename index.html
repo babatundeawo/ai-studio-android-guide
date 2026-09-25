@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#fafafa">
 <meta name="description" content="A complete, up-to-date, step-by-step guide to deploying Google AI Studio apps as installable Android PWAs via GitHub and Vercel.">
-<title>AI Studio → Android · Complete Deployment Guide v3.0</title>
+<title>AI Studio → Android · Complete Deployment Guide v4.0</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,8 +20,8 @@
     <div class="brand-chip"><span>◈</span> Techbase</div>
     <a href="index.html" style="text-decoration:none;"><div class="brand-title">AI Studio →<br>Android Guide</div></a>
     <div class="brand-meta">
-      <span class="mini-badge mb-cyan">v3.0</span>
-      <span class="mini-badge mb-green">Aug 2026</span>
+      <span class="mini-badge mb-cyan">v4.0</span>
+      <span class="mini-badge mb-green">Sep 2026</span>
       <span class="mini-badge mb-yellow">45–60 min</span>
     </div>
   </div>
@@ -50,6 +50,7 @@
   <div class="nav-section">
     <div class="nav-label">Deployment — Part 4–6</div>
     <a class="nav-item" href="vercel.html"><span class="nav-dot"></span>Deploy to Vercel</a>
+    <a class="nav-item" href="replit.html"><span class="nav-dot"></span>Deploy to Replit</a>
     <a class="nav-item" href="android.html"><span class="nav-dot"></span>Install on Android</a>
     <a class="nav-item" href="updates.html"><span class="nav-dot"></span>Update Workflow</a>
   </div>
@@ -84,10 +85,10 @@
 
   <div class="hero-content">
     <div class="hero-eyebrow">
-      <span class="pill pill-cyan"><span class="dot"></span> Version 3.0</span>
+      <span class="pill pill-cyan"><span class="dot"></span> Version 4.0</span>
       <span class="pill pill-green">Beginner — Intermediate</span>
       <span class="pill pill-yellow">45–60 Minutes</span>
-      <span class="pill pill-purple">Updated Aug 2026</span>
+      <span class="pill pill-purple">Updated Sep 2026</span>
     </div>
 
     <h1 class="hero-title">
@@ -97,18 +98,18 @@
     </h1>
 
     <p class="hero-desc">
-      A complete, up-to-date, step-by-step guide to creating professional AI-powered Android apps using Google AI Studio's Build mode, GitHub, and Vercel — no prior coding experience required. Every section now lives on its own page for faster loading and easier navigation on any screen.
+      A complete, up-to-date, step-by-step guide to creating professional AI-powered Android apps using Google AI Studio's Build mode — now running on the Antigravity Agent — plus GitHub, and your choice of Vercel, Replit, or AI Studio's own direct-to-Cloud-Run Publish button. No prior coding experience required. Every section lives on its own page for faster loading and easier navigation on any screen.
     </p>
 
     <div class="hero-stats">
-      <div class="stat"><span class="stat-val">9</span><span class="stat-key">Pages</span></div>
-      <div class="stat"><span class="stat-val">23+</span><span class="stat-key">Steps</span></div>
-      <div class="stat"><span class="stat-val">3</span><span class="stat-key">Platforms</span></div>
+      <div class="stat"><span class="stat-val">10</span><span class="stat-key">Pages</span></div>
+      <div class="stat"><span class="stat-val">27+</span><span class="stat-key">Steps</span></div>
+      <div class="stat"><span class="stat-val">5</span><span class="stat-key">Platforms</span></div>
       <div class="stat"><span class="stat-val">PWA</span><span class="stat-key">Output</span></div>
     </div>
 
     <div class="hero-pipeline" aria-hidden="true">
-      <div class="pipeline-stage" style="--stage-color:#6d5ef5">
+      <div class="pipeline-stage" style="--stage-color:#2f6fed">
         <span class="pipeline-dot"></span><span class="pipeline-label">AI Studio</span>
       </div>
       <span class="pipeline-line"></span>
@@ -117,10 +118,10 @@
       </div>
       <span class="pipeline-line"></span>
       <div class="pipeline-stage" style="--stage-color:#14151a">
-        <span class="pipeline-dot"></span><span class="pipeline-label">Vercel</span>
+        <span class="pipeline-dot"></span><span class="pipeline-label">Vercel / Replit</span>
       </div>
       <span class="pipeline-line"></span>
-      <div class="pipeline-stage" style="--stage-color:#16a34a">
+      <div class="pipeline-stage" style="--stage-color:#059669">
         <span class="pipeline-dot"></span><span class="pipeline-label">Android</span>
       </div>
     </div>
@@ -153,7 +154,7 @@
         <div class="stack-row"><span class="s-label">Frontend</span><span class="s-val">Vite + React + TypeScript</span></div>
         <div class="stack-row"><span class="s-label">AI Engine</span><span class="s-val">Google Gemini API</span></div>
         <div class="stack-row"><span class="s-label">Version Control</span><span class="s-val">GitHub</span></div>
-        <div class="stack-row"><span class="s-label">Hosting</span><span class="s-val">Vercel</span></div>
+        <div class="stack-row"><span class="s-label">Hosting</span><span class="s-val">Vercel, Replit, or Cloud Run</span></div>
         <div class="stack-row"><span class="s-label">Delivery</span><span class="s-val">Progressive Web App</span></div>
       </div>
     </div>
@@ -193,7 +194,7 @@
   <div class="section-eyebrow">
     <span class="section-part">Full Guide</span>
     <div class="section-divider"></div>
-    <span class="section-num">9 Sections</span>
+    <span class="section-num">10 Sections</span>
   </div>
   <h2 class="section-title">Jump to <span class="hl">Any Section</span></h2>
   <p class="section-sub">The guide is split into focused pages — read in order for the full walkthrough, or jump straight to what you need.</p>
@@ -228,6 +229,13 @@
     <span class="hub-desc">Import your repo, wire up environment variables correctly, and go live with a free, HTTPS-secured URL.</span>
     <span class="hub-meta"><span>5 steps</span><span>~10 min</span></span>
   </a>
+  <a class="hub-card" href="replit.html">
+    <span class="hub-part">Part 4B · Steps R1–R5</span>
+    <span class="hub-icon">🌀</span>
+    <span class="hub-title">Deploy to Replit</span>
+    <span class="hub-desc">An alternative to Part 4 with no non-commercial-use restriction — plus quick notes on Netlify and Cloudflare Pages.</span>
+    <span class="hub-meta"><span>5 steps</span><span>~10 min</span></span>
+  </a>
   <a class="hub-card" href="android.html">
     <span class="hub-part">Part 5 · Steps 17–20</span>
     <span class="hub-icon">📱</span>
@@ -246,8 +254,8 @@
     <span class="hub-part">Reference</span>
     <span class="hub-icon">🛠️</span>
     <span class="hub-title">Troubleshooting</span>
-    <span class="hub-desc">A visual diagnosis flowchart plus fixes for the most common blank-page, API, build, and install failures.</span>
-    <span class="hub-meta"><span>6 issues</span><span>lookup</span></span>
+    <span class="hub-desc">A visual diagnosis flowchart plus fixes for the most common blank-page, API, build, install, and Cloud Run publish failures.</span>
+    <span class="hub-meta"><span>8 issues</span><span>lookup</span></span>
   </a>
   <a class="hub-card" href="tips.html">
     <span class="hub-part">Reference</span>
@@ -260,8 +268,8 @@
     <span class="hub-part">Reference</span>
     <span class="hub-icon">📖</span>
     <span class="hub-title">Glossary &amp; Appendix</span>
-    <span class="hub-desc">Plain-English definitions for every technical term used across the guide, from API key to Trusted Web Activity.</span>
-    <span class="hub-meta"><span>14 terms</span><span>lookup</span></span>
+    <span class="hub-desc">Plain-English definitions for every technical term used across the guide, from API key to the Antigravity Agent.</span>
+    <span class="hub-meta"><span>19 terms</span><span>lookup</span></span>
   </a>
 </div>
 
@@ -302,7 +310,7 @@
 <footer>
   <span>// <span>Techbase Consultant Services</span> · Educational Reference</span>
   <div class="f-right">
-    <span>v3.0 · Aug 2026</span>
+    <span>v4.0 · Sep 2026</span>
     <span>Maintained by: <span>Lead Consultant</span></span>
   </div>
 </footer>
