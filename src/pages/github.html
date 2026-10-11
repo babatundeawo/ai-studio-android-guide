@@ -1,0 +1,66 @@
+---
+title: GitHub Bridge
+nav: GitHub Bridge
+part: Part 3
+steps: Steps 7–11
+h1: The GitHub "Bridge"
+lead: Critical file configuration before you export to GitHub. Read every word of this section.
+reviewed: Reviewed September 2026
+description: Configure index.html and manifest.json, then export your AI Studio app to a GitHub repository.
+---
+<div class="alert a-info"><div class="alert-body">Used AI Studio's built-in <strong>Publish</strong> shortcut from <a href="build.html#publish">Part 2</a> instead? You can skip straight to <a href="android.html">Part 5 — Install on Android</a> with that URL. Come back here whenever you want unlimited projects, a custom domain, or a repo you can edit by hand.</div></div>
+<div class="alert a-crit"><div class="alert-body"><strong>Most Important Section — Read Carefully</strong>Before you click "Export to GitHub," two essential files must be correct in AI Studio's Code tab. Skipping this step can leave your deployed app showing a blank page or failing to install on Android.</div></div>
+<div class="split-panel">
+<div class="panel-card critical-panel">
+<div class="panel-header"><span class="ph-num">1</span><h2 class="ph-title">Configure index.html</h2><span class="ph-file">Critical file 1</span></div>
+<div class="panel-body">
+<p>Open <code>index.html</code> in the AI Studio Code tab. Add these two lines if they're not already present — do NOT delete anything existing.</p>
+<p><strong>Inside &lt;head&gt;, before &lt;/head&gt;:</strong></p>
+<figure class="code"><div class="code-bar"><span class="code-label">html</span><button class="copy-btn" data-copy="" type="button">Copy</button></div><pre><code><span class="tag-c">&lt;link</span> <span class="attr">rel</span>=<span class="str">"manifest"</span> <span class="attr">href</span>=<span class="str">"/manifest.json"</span><span class="tag-c">&gt;</span></code></pre></figure>
+<p><strong>Inside &lt;body&gt;, after &lt;div id="root"&gt;&lt;/div&gt;:</strong></p>
+<figure class="code"><div class="code-bar"><span class="code-label">html</span><button class="copy-btn" data-copy="" type="button">Copy</button></div><pre><code><span class="tag-c">&lt;script</span> <span class="attr">type</span>=<span class="str">"module"</span> <span class="attr">src</span>=<span class="str">"/index.tsx"</span><span class="tag-c">&gt;&lt;/script&gt;</span></code></pre></figure>
+<div class="alert a-crit"><div class="alert-body">Without the script tag → blank page. Without the manifest link → app not installable on Android.</div></div>
+</div>
+</div>
+<div class="panel-card critical-panel">
+<div class="panel-header"><span class="ph-num">2</span><h2 class="ph-title">Create manifest.json</h2><span class="ph-file">Critical file 2</span></div>
+<div class="panel-body">
+<p>Create a new file in the <strong>root folder</strong> named <code>manifest.json</code>. Paste and customize:</p>
+<figure class="code"><div class="code-bar"><span class="code-label">manifest.json</span><button class="copy-btn" data-copy="" type="button">Copy</button></div><pre><code>{
+  <span class="str">"short_name"</span>: <span class="str">"YourApp"</span>,       <span class="com">// shown under icon</span>
+  <span class="str">"name"</span>: <span class="str">"Your Full App Name"</span>,
+  <span class="str">"start_url"</span>: <span class="str">"/"</span>,
+  <span class="str">"display"</span>: <span class="str">"standalone"</span>,       <span class="com">// native app look</span>
+  <span class="str">"theme_color"</span>: <span class="str">"#020617"</span>,
+  <span class="str">"background_color"</span>: <span class="str">"#020617"</span>,
+  <span class="str">"icons"</span>: [{
+    <span class="str">"src"</span>: <span class="str">"/icon-512.png"</span>,
+    <span class="str">"type"</span>: <span class="str">"image/png"</span>,
+    <span class="str">"sizes"</span>: <span class="str">"512x512"</span>
+  }]
+}</code></pre></figure>
+<p>Keep <code>short_name</code> under 12 characters. Change <code>theme_color</code> to match your app, and upload a real icon file to the repo rather than linking an external image — Android caches PWA icons at install time, and a broken external link means a broken icon forever.</p>
+</div>
+</div>
+</div>
+<ol class="steps">
+<li class="step"><span class="step-num">10</span><div class="step-main"><div class="step-head"><h2 class="step-title">Export Your App to GitHub</h2></div><div class="step-content">
+<p>In AI Studio's Code/Preview pane, look for the GitHub icon (cat silhouette) in the header bar and click it — this opens the <strong>Push to GitHub</strong> panel (you may also see it called "Sync with GitHub"). The first time, authorize Google AI Studio's GitHub app when prompted. Set a repository name (lowercase + hyphens, e.g. <code>my-ai-app</code>), set visibility to <strong>Public</strong>, and confirm.</p>
+<p>You'll see a confirmation once the initial commit lands in your new repository. After this first push, AI Studio keeps a sync link to that same repo, so later updates in <a href="updates.html">Part 6</a> push to it directly rather than creating a new one each time — worth double-checking, since some users have reported the sync occasionally lagging behind; if a later push doesn't show up on GitHub, re-open the GitHub panel and push again.</p>
+<div class="alert a-warn"><div class="alert-body"><strong>Your API key does not travel with the export.</strong> For security, AI Studio does not copy your <code>GEMINI_API_KEY</code> secret into the GitHub repo. You'll add it manually as an environment variable in Vercel in the next part — that's expected, not a bug.</div></div>
+</div></div></li>
+<li class="step"><span class="step-num">11</span><div class="step-main"><div class="step-head"><h2 class="step-title">Verify Your GitHub Repository</h2><span class="tag tag-ok">Checklist</span></div><div class="step-content">
+<p>Go to <a href="https://github.com">github.com</a> and open your new repository. Confirm these files exist:</p>
+<div class="file-tree">
+<span class="ft-dir">your-app-repo/</span>
+│
+├── <span class="ft-critical">index.html</span> <span class="ft-comment">← MUST have script tag + manifest link</span>
+├── <span class="ft-critical">manifest.json</span> <span class="ft-comment">← MUST exist with name, colors, icon</span>
+├── <span class="ft-file">index.tsx</span> <span class="ft-comment">or main.tsx — React entry point</span>
+├── <span class="ft-file">package.json</span> <span class="ft-comment">Node.js dependencies</span>
+├── <span class="ft-file">vite.config.ts</span> <span class="ft-comment">Build config</span>
+├── <span class="ft-dir">src/</span> <span class="ft-comment">Source code</span>
+└── <span class="ft-dir">public/</span> <span class="ft-comment">Static assets</span></div>
+<div class="alert a-warn"><div class="alert-body">If <code>index.html</code> or <code>manifest.json</code> are missing or incorrect, edit them directly on GitHub (pencil icon on the file page) before deploying to Vercel.</div></div>
+</div></div></li>
+</ol>

@@ -1,0 +1,29 @@
+{
+  "name": "AI Studio → Android Guide",
+  "shortName": "AI Studio → Android",
+  "version": "4.0",
+  "updated": "Sep 2026",
+  "url": "https://babatundeawo.github.io/ai-studio-android-guide/",
+  "repo": "https://github.com/babatundeawo/ai-studio-android-guide",
+  "author": "Babatunde Awoyemi",
+  "publisher": "Techbase Consultant Services",
+  "twitter": "@ba_awoyemi",
+  "themeColor": { "light": "#f7f8fc", "dark": "#0b1020" },
+  "nav": [
+    { "label": "Overview", "items": [ { "page": "index", "label": "Introduction & hub" } ] },
+    { "label": "Setup: Parts 1–3", "items": [
+      { "page": "accounts", "label": "Account Setup" },
+      { "page": "build", "label": "Build in AI Studio" },
+      { "page": "github", "label": "GitHub Bridge" } ] },
+    { "label": "Deployment: Parts 4–6", "items": [
+      { "page": "vercel", "label": "Deploy to Vercel" },
+      { "page": "replit", "label": "Deploy to Replit" },
+      { "page": "android", "label": "Install on Android" },
+      { "page": "updates", "label": "Update Workflow" } ] },
+    { "label": "Reference", "items": [
+      { "page": "troubleshoot", "label": "Troubleshooting" },
+      { "page": "tips", "label": "Best Practices" },
+      { "page": "glossary", "label": "Glossary & Appendix" } ] }
+  ],
+  "order": ["index","accounts","build","github","vercel","replit","android","updates","troubleshoot","tips","glossary"]
+}

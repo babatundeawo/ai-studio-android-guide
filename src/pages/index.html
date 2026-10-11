@@ -1,0 +1,126 @@
+---
+layout: home
+title: AI Studio → Android · Complete Deployment Guide v4.0
+description: A complete, up-to-date, step-by-step guide to deploying Google AI Studio apps as installable Android PWAs via GitHub and Vercel.
+---
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <p class="hero-kicker"><span class="badge badge-brand">Version 4.0</span><span class="hero-updated">Updated September 2026</span></p>
+    <h1 id="hero-title" class="hero-title">Google AI Studio to Android, one clear route.</h1>
+    <p class="hero-lead">A complete, up-to-date, step-by-step guide to creating professional AI-powered Android apps using Google AI Studio's Build mode — now running on the Antigravity Agent — plus GitHub, and your choice of Vercel, Replit, or AI Studio's own direct-to-Cloud-Run Publish button. No prior coding experience required. Every section lives on its own page for faster loading and easier navigation on any screen.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="accounts.html">Start with Part 1: Account setup</a>
+      <a class="btn btn-ghost" href="#hub">Browse every part</a>
+    </div>
+  </div>
+
+  <nav class="route" aria-label="The deployment route">
+    <ol class="route-line">
+      <li class="route-stop"><a href="build.html"><span class="route-node" aria-hidden="true"></span><span class="route-name">AI Studio</span><span class="route-where">Part 2: build the app</span></a></li>
+      <li class="route-stop"><a href="github.html"><span class="route-node" aria-hidden="true"></span><span class="route-name">GitHub</span><span class="route-where">Part 3: export the code</span></a></li>
+      <li class="route-stop"><a href="vercel.html"><span class="route-node" aria-hidden="true"></span><span class="route-name">Vercel or Replit</span><span class="route-where">Part 4 or 4B: go live</span></a></li>
+      <li class="route-stop"><a href="android.html"><span class="route-node" aria-hidden="true"></span><span class="route-name">Android</span><span class="route-where">Part 5: install it</span></a></li>
+    </ol>
+  </nav>
+  <dl class="hero-facts">
+      <div><dt>Time</dt><dd>45–60 minutes</dd></div>
+      <div><dt>Level</dt><dd>Beginner to intermediate</dd></div>
+      <div><dt>Pages</dt><dd>10</dd></div>
+      <div><dt>Steps</dt><dd>27+</dd></div>
+      <div><dt>Output</dt><dd>Installable PWA</dd></div>
+    </dl>
+</section>
+
+<section class="band" aria-labelledby="build-title">
+  <div class="band-grid">
+    <div>
+      <h2 id="build-title" class="band-title">A production-ready AI app, live on the web and installable on Android</h2>
+      <ul class="check-list">
+        <li>Fully functional AI-powered app (game, learning tool, chatbot, etc.)</li>
+        <li>Professional deployment on Vercel with automatic HTTPS</li>
+        <li>Installable Android PWA — no Play Store required</li>
+        <li>Update system: change once in AI Studio, auto-deploys everywhere</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="mini-title">Technology stack</h3>
+      <dl class="stack">
+        <div><dt>Frontend</dt><dd>Vite + React + TypeScript</dd></div>
+        <div><dt>AI engine</dt><dd>Google Gemini API</dd></div>
+        <div><dt>Version control</dt><dd>GitHub</dd></div>
+        <div><dt>Hosting</dt><dd>Vercel, Replit, or Cloud Run</dd></div>
+        <div><dt>Delivery</dt><dd>Progressive Web App</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="route-title">
+  <h2 id="route-title" class="block-title">Choose where your app will live</h2>
+  <p class="block-lead">Three routes lead to the same installable app. Pick one, then continue to Part 5.</p>
+  <div class="table-wrap">
+    <table class="compare">
+      <thead><tr><th scope="col">Route</th><th scope="col">Good fit when</th><th scope="col">Limits to know</th><th scope="col">Updating later</th></tr></thead>
+      <tbody>
+        <tr><th scope="row"><a href="build.html#publish">Publish from AI Studio</a><span class="cell-sub">Cloud Run Starter Tier</span></th><td>You want the fastest path to a live HTTPS URL, with no GitHub or host account.</td><td>First two apps only, one Cloud Run region, and not available if you've ever set up Google Cloud billing.</td><td>Publish again from AI Studio.</td></tr>
+        <tr><th scope="row"><a href="vercel.html">Vercel</a><span class="cell-sub">Part 4</span></th><td>You want automatic redeploys on every GitHub push.</td><td>The free Hobby plan is for non-commercial use only.</td><td>Automatic after each GitHub push.</td></tr>
+        <tr><th scope="row"><a href="replit.html">Replit</a><span class="cell-sub">Part 4B</span></th><td>You may charge for your app, or want everything in one dashboard.</td><td>The key is baked into a static build, so restrict it in Google AI Studio.</td><td>Pull the changes and click Deploy again.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="prereq-title">
+  <h2 id="prereq-title" class="block-title">Before you begin</h2>
+  <ul class="prereq-list">
+    <li><svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg>Stable internet connection</li>
+    <li><svg class="ico" aria-hidden="true"><use href="#i-window"/></svg>Chrome, Firefox, Safari, or Edge</li>
+    <li><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Android phone (optional)</li>
+    <li><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>45–60 mins of focused time</li>
+    <li><svg class="ico" aria-hidden="true"><use href="#i-book"/></svg>Basic instruction-following ability</li>
+    <li><svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg>No child accounts on any service</li>
+  </ul>
+  <div class="alert a-crit"><div class="alert-body"><strong>Security rules</strong>Never share API keys publicly. Save all credentials in a password manager (1Password, Bitwarden, or your browser's built-in manager).</div></div>
+</section>
+
+<section class="block" id="hub" aria-labelledby="hub-title">
+  <h2 id="hub-title" class="block-title">Jump to any section</h2>
+  <p class="block-lead">The guide is split into focused pages — read in order for the full walkthrough, or jump straight to what you need.</p>
+  <ol class="hub">
+    <li><a class="hub-row" href="accounts.html"><span class="hub-part">Part 1<small>Steps 1–3</small></span><span class="hub-main"><span class="hub-title">Account Setup</span><span class="hub-desc">Create your Gmail, GitHub, and Vercel accounts in the right order so everything links together cleanly.</span></span><span class="hub-meta">3 steps, about 10 min</span></a></li>
+    <li><a class="hub-row" href="build.html"><span class="hub-part">Part 2<small>Steps 4–6</small></span><span class="hub-main"><span class="hub-title">Build in AI Studio</span><span class="hub-desc">Describe your app idea in plain English and let Gemini's Build mode generate, preview, and iterate on it for you.</span></span><span class="hub-meta">3 steps, about 10 min</span></a></li>
+    <li><a class="hub-row" href="github.html"><span class="hub-part">Part 3<small>Steps 7–11</small></span><span class="hub-main"><span class="hub-title">GitHub Bridge</span><span class="hub-desc">Configure the two files that make your app installable, then export it to a GitHub repository.</span></span><span class="hub-meta">5 steps, about 10 min</span></a></li>
+    <li><a class="hub-row" href="vercel.html"><span class="hub-part">Part 4<small>Steps 12–16</small></span><span class="hub-main"><span class="hub-title">Deploy to Vercel</span><span class="hub-desc">Import your repo, wire up environment variables correctly, and go live with a free, HTTPS-secured URL.</span></span><span class="hub-meta">5 steps, about 10 min</span></a></li>
+    <li><a class="hub-row" href="replit.html"><span class="hub-part">Part 4B<small>Steps R1–R5</small></span><span class="hub-main"><span class="hub-title">Deploy to Replit</span><span class="hub-desc">An alternative to Part 4 with no non-commercial-use restriction — plus quick notes on Netlify and Cloudflare Pages.</span></span><span class="hub-meta">5 steps, about 10 min</span></a></li>
+    <li><a class="hub-row" href="android.html"><span class="hub-part">Part 5<small>Steps 17–20</small></span><span class="hub-main"><span class="hub-title">Install on Android</span><span class="hub-desc">Turn your live URL into a home-screen app using Chrome's PWA install flow — no Play Store needed.</span></span><span class="hub-meta">4 steps, about 5 min</span></a></li>
+    <li><a class="hub-row" href="updates.html"><span class="hub-part">Part 6<small>SOP</small></span><span class="hub-main"><span class="hub-title">Update Workflow</span><span class="hub-desc">The exact sequence to follow every time you change your app, so an AI Studio re-export never breaks your live site.</span></span><span class="hub-meta">5-step SOP, about 5 min</span></a></li>
+  </ol>
+  <h3 class="mini-title">Reference</h3>
+  <ul class="hub hub-ref">
+    <li><a class="hub-row" href="troubleshoot.html"><span class="hub-part">Lookup</span><span class="hub-main"><span class="hub-title">Troubleshooting</span><span class="hub-desc">A visual diagnosis flowchart plus fixes for the most common blank-page, API, build, install, and Cloud Run publish failures.</span></span><span class="hub-meta">8 issues</span></a></li>
+    <li><a class="hub-row" href="tips.html"><span class="hub-part">Lookup</span><span class="hub-main"><span class="hub-title">Best Practices</span><span class="hub-desc">Security, version control, performance, and accessibility habits worth building from day one — plus current free-tier limits.</span></span><span class="hub-meta">6 tips</span></a></li>
+    <li><a class="hub-row" href="glossary.html"><span class="hub-part">Lookup</span><span class="hub-main"><span class="hub-title">Glossary &amp; Appendix</span><span class="hub-desc">Plain-English definitions for every technical term used across the guide, from API key to the Antigravity Agent.</span></span><span class="hub-meta">19 terms</span></a></li>
+  </ul>
+</section>
+
+<section class="finale" aria-labelledby="finale-title">
+  <h2 id="finale-title" class="finale-title">You'll ship it.</h2>
+  <p class="finale-lead">By the end of this guide you'll have a production-ready AI application live on the internet and installable on Android. Here's everything it covers:</p>
+  <ul class="done-list">
+    <li>Gmail, GitHub &amp; Vercel configured</li>
+    <li>AI-powered app built in AI Studio's Build mode</li>
+    <li>Gemini API key obtained &amp; secured</li>
+    <li>Critical files configured</li>
+    <li>Deployed professionally on Vercel</li>
+    <li>Installed as an Android PWA</li>
+    <li>Update workflow mastered</li>
+  </ul>
+  <h3 class="mini-title">What comes next</h3>
+  <dl class="next-list">
+    <div><dt>Share &amp; Test</dt><dd><span class="next-phase">Immediate</span>Share your URL with friends and family. Gather real user feedback.</dd></div>
+    <div><dt>Learn React</dt><dd><span class="next-phase">Near term</span>React + TypeScript enables custom features beyond AI Studio's scope.</dd></div>
+    <div><dt>Add a Database</dt><dd><span class="next-phase">Near term</span>Firebase, Supabase, or Neon for user accounts and persistent data.</dd></div>
+    <div><dt>Play Store</dt><dd><span class="next-phase">Future</span>Publish as a TWA (Trusted Web Activity) on the Google Play Store.</dd></div>
+  </dl>
+  <a class="btn btn-primary" href="accounts.html">Start the guide: Part 1, Account setup</a>
+</section>

@@ -1,0 +1,30 @@
+---
+title: Best Practices & Pro Tips
+nav: Best Practices & Pro Tips
+part: Reference
+steps: 
+h1: Best Practices & Pro Tips
+lead: 
+reviewed: Free-tier figures verified against current provider documentation, September 2026
+description: Security, version control, performance, and accessibility best practices, plus current free-tier limits.
+---
+<div class="tips-bento">
+<div class="tip-card"><div class="tc-icon"><svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg></div><div class="tc-title">Secure Your Keys</div><div class="tc-desc">Never commit API keys in code. Always use environment variables. Rotate keys periodically. Enable 2FA on all accounts. Restrict Gemini keys to the Generative Language API only.</div></div>
+<div class="tip-card"><div class="tc-icon"><svg class="ico" aria-hidden="true"><use href="#i-branch"/></svg></div><div class="tc-title">Version Control Wisely</div><div class="tc-desc">Commit often with descriptive messages. Create branches for major changes. Tag production releases. Keep your commit history clean.</div></div>
+<div class="tip-card"><div class="tc-icon"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></div><div class="tc-title">Mobile-First Design</div><div class="tc-desc">Design for small screens first. Test on real devices, not just emulators. Touch targets must be at least 44×44 px.</div></div>
+<div class="tip-card"><div class="tc-icon"><svg class="ico" aria-hidden="true"><use href="#i-bolt"/></svg></div><div class="tc-title">Optimize Performance</div><div class="tc-desc">Minimize large dependencies. Compress images before use. Use lazy loading for heavy components. Monitor Vercel bandwidth in your dashboard.</div></div>
+<div class="tip-card"><div class="tc-icon"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg></div><div class="tc-title">Accessibility</div><div class="tc-desc">Use semantic HTML. Ensure sufficient color contrast. Add alt text to all images. Show loading states for AI responses.</div></div>
+<div class="tip-card"><div class="tc-icon"><svg class="ico" aria-hidden="true"><use href="#i-chart"/></svg></div><div class="tc-title">Monitor &amp; Maintain</div><div class="tc-desc">Check the AI Studio API Keys page for usage and blocked-key notices. Set billing alerts if you attach a Cloud project. Review GitHub security alerts. Update dependencies regularly.</div></div>
+</div>
+<h2 id="tier-table" class="subhead">Free tier limits</h2>
+<table class="tier-table">
+<tr><th>Service</th><th>Free Tier Includes</th></tr>
+<tr><td>Google AI Studio / Gemini API</td><td>Free API access on Flash-tier models, with compute-based usage limits that refresh roughly every 5 hours — check <a href="https://ai.google.dev/pricing">ai.google.dev/pricing</a> for the current per-model limits, since they vary by model and change over time. No billing setup required for basic use.</td></tr>
+<tr><td>Google Cloud Run (via AI Studio's Starter Tier)</td><td>Publish up to 2 apps straight from AI Studio with no billing account — beyond that, standard Cloud Run free tier pricing applies per project. See <a href="build.html#publish">Part 2</a>.</td></tr>
+<tr><td>Vercel (Hobby plan)</td><td>100 GB Fast Data Transfer/month · 1,000,000 function invocations · up to 200 projects · automatic HTTPS — for non-commercial personal projects only. Confirm current numbers at <a href="https://vercel.com/docs/plans/hobby">vercel.com/docs/plans/hobby</a> before relying on them.</td></tr>
+<tr><td>Replit (Static Deployments)</td><td>Free hosting on every plan, including the free tier — no commercial-use restriction. Data transfer allowance scales with your plan (100 GiB/month on Core); overage is billed per GB beyond that.</td></tr>
+<tr><td>Netlify (Free/Starter plan)</td><td>Roughly 100 GB bandwidth and 300 build minutes/month · commercial use allowed, unlike Vercel Hobby.</td></tr>
+<tr><td>Cloudflare Pages (Free plan)</td><td>Unlimited bandwidth · 500 builds/month · a strong pick if you expect meaningful traffic on a free tier.</td></tr>
+<tr><td>GitHub (Free plan)</td><td>Unlimited public repositories · 2,000 GitHub Actions minutes/month on private repos (public repos are unmetered) · private repos with a reduced feature set · GitHub Pages on public repos.</td></tr>
+</table>
+<div class="alert a-info"><div class="alert-body"><strong>Free tiers change often.</strong> Bandwidth caps, invocation limits, and commercial-use rules on platforms like Vercel and pricing on the Gemini API have shifted more than once in the past year. Treat the numbers above as a starting point and re-check each provider's own docs before you scale past a hobby project.</div></div>

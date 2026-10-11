@@ -1,0 +1,84 @@
+/* ═══ Design tokens ═══════════════════════════════════════════
+   Brand: a route map. Deep navy ink, one indigo for action, one
+   Android green for "arrived". Change colours here and every page follows. */
+@font-face { font-family: "Geist"; src: url("../fonts/geist-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Geist Mono"; src: url("../fonts/geist-mono-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+
+:root {
+  color-scheme: light dark;
+
+  /* Type */
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --t-xs: 0.8125rem;
+  --t-sm: 0.9375rem;
+  --t-base: clamp(1rem, 0.96rem + 0.18vw, 1.0625rem);
+  --t-lg: clamp(1.125rem, 1.06rem + 0.3vw, 1.25rem);
+  --t-xl: clamp(1.375rem, 1.2rem + 0.8vw, 1.75rem);
+  --t-2xl: clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem);
+  --t-3xl: clamp(2.125rem, 1.5rem + 2.8vw, 3.5rem);
+  --t-hero: clamp(2.5rem, 1.5rem + 4.6vw, 5rem);
+
+  /* Space (4px base) */
+  --s-1: 0.25rem; --s-2: 0.5rem; --s-3: 0.75rem; --s-4: 1rem; --s-5: 1.5rem;
+  --s-6: 2rem; --s-7: 3rem; --s-8: 4.5rem; --s-9: 7rem;
+
+  /* Shape */
+  --r-sm: 0.375rem; --r-md: 0.625rem; --r-lg: 1rem; --r-pill: 999px;
+  --gutter: clamp(1rem, 0.5rem + 2.4vw, 2.5rem);
+  --sidebar-w: 17.5rem;
+  --measure: 44rem;
+
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur-1: 120ms; --dur-2: 220ms; --dur-3: 600ms;
+
+  /* Layers */
+  --z-bar: 20; --z-sidebar: 40; --z-scrim: 30; --z-top: 25; --z-dialog: 60; --z-skip: 100;
+
+  /* Colour: light */
+  --bg: #f7f8fc;
+  --bg-elev: #ffffff;
+  --bg-sunk: #eef0f8;
+  --ink: #0f1730;
+  --ink-2: #39425f;
+  --ink-3: #596282;
+  --line: #dfe3f0;
+  --line-strong: #c3c9de;
+  --brand: #4338ca;
+  --brand-fill: #4f46e5;
+  --brand-tint: #eceafd;
+  --on-brand: #ffffff;
+  --accent: #0a7d47;
+  --accent-fill: #2fd37c;
+  --accent-tint: #e3f8ec;
+  --ok: #0a7d47; --ok-bg: #e6f7ee;
+  --warn: #8a5300; --warn-bg: #fff3dc;
+  --crit: #b42318; --crit-bg: #fdecea;
+  --info: #2748c9; --info-bg: #eaf0ff;
+  --code-bg: #0f1530; --code-ink: #e6eaff; --code-bar: #19204a; --code-line: #2a3263;
+  --sh-1: 0 1px 2px rgb(15 23 48 / 0.06), 0 1px 1px rgb(15 23 48 / 0.04);
+  --sh-2: 0 12px 32px -12px rgb(15 23 48 / 0.22), 0 2px 6px rgb(15 23 48 / 0.06);
+  --focus: 0 0 0 3px var(--bg), 0 0 0 5px var(--brand-fill);
+}
+
+:root[data-theme="dark"] {
+  --bg: #0b1020; --bg-elev: #121936; --bg-sunk: #0e1430; --ink: #e9edfb; --ink-2: #b6bfdc; --ink-3: #939dc0;
+  --line: #222b50; --line-strong: #34406f;
+  --brand: #a5abff; --brand-fill: #8a90ff; --brand-tint: #1b2150; --on-brand: #0b1020;
+  --accent: #4be08f; --accent-fill: #4be08f; --accent-tint: #0f2a21;
+  --ok: #4be08f; --ok-bg: #0f2a21; --warn: #f5b84b; --warn-bg: #2b2209; --crit: #ff8a7e; --crit-bg: #31130f; --info: #9db8ff; --info-bg: #121f45;
+  --code-bg: #080c1c; --code-bar: #121936; --code-line: #222b50;
+  --sh-1: 0 1px 2px rgb(0 0 0 / 0.4); --sh-2: 0 16px 40px -12px rgb(0 0 0 / 0.6);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b1020; --bg-elev: #121936; --bg-sunk: #0e1430; --ink: #e9edfb; --ink-2: #b6bfdc; --ink-3: #939dc0;
+    --line: #222b50; --line-strong: #34406f;
+    --brand: #a5abff; --brand-fill: #8a90ff; --brand-tint: #1b2150; --on-brand: #0b1020;
+    --accent: #4be08f; --accent-fill: #4be08f; --accent-tint: #0f2a21;
+    --ok: #4be08f; --ok-bg: #0f2a21; --warn: #f5b84b; --warn-bg: #2b2209; --crit: #ff8a7e; --crit-bg: #31130f; --info: #9db8ff; --info-bg: #121f45;
+    --code-bg: #080c1c; --code-bar: #121936; --code-line: #222b50;
+    --sh-1: 0 1px 2px rgb(0 0 0 / 0.4); --sh-2: 0 16px 40px -12px rgb(0 0 0 / 0.6);
+  }
+}

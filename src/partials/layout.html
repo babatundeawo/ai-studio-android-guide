@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{canonical}}">
+{{robots}}
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="{{themeLight}}" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="{{themeDark}}" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="{{ogType}}">
+<meta property="og:site_name" content="{{siteName}}">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:image" content="{{ogImage}}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AI Studio to Android Guide: a route from Google AI Studio through GitHub and a host to an installed Android app.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="{{twitter}}">
+<meta name="twitter:title" content="{{title}}">
+<meta name="twitter:description" content="{{description}}">
+<meta name="twitter:image" content="{{ogImage}}">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preload" href="fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script src="js/theme-init.js"></script>
+<link rel="stylesheet" href="css/style.css?v={{build}}">
+<script type="application/ld+json">{{jsonld}}</script>
+</head>
+<body class="{{bodyClass}}">
+<a class="skip-link" href="#main">Skip to content</a>
+{{icons}}
+<div class="progress" aria-hidden="true"><span class="progress-bar"></span></div>
+
+<header class="topbar" id="topbar">
+  <button class="icon-btn" type="button" id="menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Open navigation"><svg class="ico"><use href="#i-menu"/></svg></button>
+  <a class="topbar-brand" href="index.html"><svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg><span>AI Studio → Android</span></a>
+  <button class="icon-btn" type="button" data-open-search aria-label="Search the guide"><svg class="ico"><use href="#i-search"/></svg></button>
+</header>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="sidebar" id="sidebar" aria-label="Guide navigation">
+  <div class="sidebar-head">
+    <a class="brand" href="index.html" aria-label="AI Studio to Android Guide, home">
+      <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+      <span class="brand-text"><span class="brand-name">AI Studio → Android</span><span class="brand-sub">Deployment guide</span></span>
+    </a>
+    <button class="icon-btn sidebar-close" type="button" id="menu-close" aria-label="Close navigation"><svg class="ico"><use href="#i-close"/></svg></button>
+  </div>
+  <button class="search-btn" type="button" data-open-search>
+    <svg class="ico" aria-hidden="true"><use href="#i-search"/></svg><span>Search</span><kbd class="kbd" data-kbd>Ctrl K</kbd>
+  </button>
+  <nav class="nav" aria-label="Guide sections">
+{{nav}}
+  </nav>
+  <div class="sidebar-foot">
+    <span class="meta-chip">v{{version}}, {{updated}}</span>
+    <button class="icon-btn" type="button" id="theme-btn" aria-label="Switch to dark theme"><svg class="ico" data-icon-moon><use href="#i-moon"/></svg><svg class="ico" data-icon-sun hidden><use href="#i-sun"/></svg></button>
+  </div>
+</aside>
+
+<div class="shell">
+  <main id="main" tabindex="-1">
+{{main}}
+  </main>
+  <footer class="site-footer">
+    <p>{{publisher}}. Educational reference, v{{version}}, {{updated}}.</p>
+    <p><a href="{{repo}}" rel="noopener noreferrer" target="_blank">View source on GitHub</a></p>
+  </footer>
+</div>
+
+<button class="to-top" id="to-top" type="button" aria-label="Back to top" hidden><svg class="ico"><use href="#i-arrow-up"/></svg></button>
+
+<dialog class="palette" id="palette" aria-label="Search the guide">
+  <form method="dialog" class="palette-form" role="search">
+    <div class="palette-field">
+      <svg class="ico" aria-hidden="true"><use href="#i-search"/></svg>
+      <input id="palette-input" type="search" placeholder="Search steps, errors, terms" autocomplete="off" spellcheck="false" aria-label="Search the guide" aria-controls="palette-results">
+      <button class="palette-esc" type="submit" aria-label="Close search">Esc</button>
+    </div>
+  </form>
+  <ul class="palette-results" id="palette-results" role="listbox" aria-label="Results"></ul>
+  <p class="palette-empty" id="palette-empty" hidden>No matches. Try a shorter word, like "manifest" or "key".</p>
+</dialog>
+
+<script src="js/main.js?v={{build}}" defer></script>
+</body>
+</html>

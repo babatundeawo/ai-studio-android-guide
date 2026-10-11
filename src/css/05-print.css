@@ -1,0 +1,15 @@
+/* ═══ Print: a clean, ink-friendly copy of any page ═══ */
+@media print {
+  :root, :root[data-theme="dark"] { --bg: #fff; --bg-elev: #fff; --bg-sunk: #f2f2f2; --ink: #000; --ink-2: #222; --ink-3: #444; --line: #bbb; --line-strong: #999; --brand: #1a1a8c; --code-bg: #f6f6f6; --code-ink: #000; --code-bar: #eaeaea; --code-line: #ccc; }
+  body { font-size: 11pt; background: #fff; }
+  .sidebar, .topbar, .scrim, .to-top, .progress, .toc, .pager, .copy-btn, .palette, .skip-link, .hero-actions { display: none !important; }
+  .shell { margin: 0; }
+  .doc, .home { max-width: none; padding: 0; }
+  .step, .alert, .code, .issue, .panel-card { break-inside: avoid; }
+  details.issue > :not(summary) { display: block !important; }
+  a { color: inherit; text-decoration: underline; }
+  .prose a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; mask: none; -webkit-mask: none; background: none; width: auto; height: auto; opacity: 1; }
+  .tag-c, .attr, .str, .com, .fn, .kw, .ft-dir, .ft-critical, .ft-comment, .env-key, .env-val, .env-arrow { color: #000 !important; }
+  .finale { background: #fff; color: #000; border: 1px solid #999; }
+  .finale-lead, .next-list dd { color: #222; } .next-list dt, .finale .mini-title { color: #000; }
+}
