@@ -1,0 +1,72 @@
+name: Build and deploy
+
+# Every push to main publishes the site. Pull requests are built and checked
+# (so you can see problems before merging) but never published.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One deployment at a time; a newer push replaces one still waiting.
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build and check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build the site
+        run: npm run build
+
+      - name: Check links, titles and accessibility basics
+        run: npm run check
+
+      - name: Lighthouse report (informational)
+        # Reports scores in the run summary. It never blocks a deployment.
+        continue-on-error: true
+        run: npx --yes @lhci/cli@0.14.0 autorun --config=lighthouserc.json
+
+      - name: Save the built site so you can download and preview it
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-preview
+          path: dist
+          retention-days: 14
+
+      - name: Prepare the site for GitHub Pages
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    name: Publish to GitHub Pages
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,91 +1,94 @@
-# AI Studio → Android: Complete Deployment Guide v4.0
+<div align="center">
 
-> A professional, interactive, multi-page web guide for deploying Google AI Studio projects as installable Android PWAs — or as native Android apps.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/logo-dark.svg">
+  <img alt="AI Studio to Android Guide" src="docs/assets/logo-light.svg" width="420">
+</picture>
 
-**Live:** https://babatundeawo.github.io/ai-studio-android-guide/
+**A step-by-step guide to turning a Google AI Studio project into an Android app you can install from your home screen.**
 
-## What This Is
+[![Build and deploy](https://github.com/babatundeawo/ai-studio-android-guide/actions/workflows/deploy.yml/badge.svg)](https://github.com/babatundeawo/ai-studio-android-guide/actions/workflows/deploy.yml)
+[![Live site](https://img.shields.io/website?url=https%3A%2F%2Fbabatundeawo.github.io%2Fai-studio-android-guide%2F&label=live%20site)](https://babatundeawo.github.io/ai-studio-android-guide/)
+![Version 4.0](https://img.shields.io/badge/version-4.0-4338ca)
 
-A comprehensive step-by-step deployment guide that walks developers through the full pipeline:
+[Live site](https://babatundeawo.github.io/ai-studio-android-guide/) ·
+[Documentation](docs/) ·
+[Report an issue](https://github.com/babatundeawo/ai-studio-android-guide/issues/new/choose)
 
-- Setting up **Google AI Studio** and getting a Gemini API key
-- Building an app with AI Studio's **Build mode** — now running on the **Antigravity Agent**, with an option to build a **native Android app** (Kotlin + Jetpack Compose) directly, no code editor required
-- Configuring `manifest.json` and the entry script, then pushing to **GitHub**
-- Deploying via **Vercel**, **Replit**, or AI Studio's own one-click **Publish to Cloud Run** shortcut (Google Cloud Starter Tier — 2 free apps, no billing setup)
-- Installing the live web app as a **Progressive Web App (PWA)** on Android
-- Managing updates, debugging common issues, and maintaining the deployment
+</div>
 
-Version 4.0 is a content and design refresh of the v3.0 multi-page site. It replaces everything that's changed since August 2026 — Build mode's move to the Antigravity Agent, the current Flash-only model limitation in Build mode, native Android app generation, AI Studio's direct-to-Cloud-Run Publish button, and corrected free-tier figures for Vercel — and adds a full alternative deployment path through **Replit**, with shorter notes on Netlify and Cloudflare Pages. The visual design has also been refreshed with a new colour system built specifically for this guide.
+<p align="center">
+  <img src="docs/assets/preview-home.png" alt="The guide's home page: a headline, a four-station route from AI Studio through GitHub and a host to Android, and a navigation sidebar." width="760">
+</p>
 
-## Site Structure
+## About
 
-```
-ai-studio-android-guide/
-├── index.html          ← Home / hub — hero, prerequisites, links to every page
-├── accounts.html        ← Part 1 — Account Setup
-├── build.html            ← Part 2 — Build in AI Studio
-├── github.html           ← Part 3 — The GitHub Bridge
-├── vercel.html            ← Part 4 — Deploy to Vercel
-├── replit.html             ← Part 4B — Deploy to Replit (+ Netlify/Cloudflare Pages notes)
-├── android.html            ← Part 5 — Install on Android
-├── updates.html             ← Part 6 — Update Workflow / SOP
-├── troubleshoot.html         ← Reference — Troubleshooting flowchart + 8 issues
-├── tips.html                  ← Reference — Best practices + free-tier table
-├── glossary.html               ← Reference — Glossary & appendix (19 terms)
-├── css/
-│   └── style.css                ← Full design system, shared across every page
-├── js/
-│   └── main.js                   ← Shared behaviour: nav, progress bar, accordion,
-│                                     copy-to-clipboard, dark mode, search, back-to-top
-└── README.md
-```
+AI Studio → Android is a free, multi-page guide for anyone who wants to ship an AI-powered app without prior coding experience. It starts with account setup, builds an app in Google AI Studio's Build mode, moves the code to GitHub, publishes it with Vercel, Replit, or AI Studio's own Publish button, and finishes by installing the live app on an Android phone as a Progressive Web App (PWA). Allow 45–60 minutes.
 
 ## Features
 
-| Feature | Detail |
-|---|---|
-| 🧭 Multi-page architecture | Every section is its own HTML file with its own URL, so pages load fast and are easy to link to directly |
-| 📋 Persistent sidebar | Fixed nav with current-page highlighting, filterable by keyword |
-| 🌗 Dark mode | Optional toggle in the sidebar (off by default — the guide is designed light-first), remembered for the session |
-| 💻 Code blocks | Syntax-highlighted, dark terminal-style, one-click copy |
-| 🔽 Accordion troubleshooting | 8 common issues with fixes, plus a visual diagnosis flowchart |
-| 📊 Free-tier reference table | Current limits for AI Studio, Cloud Run, Vercel, Replit, Netlify, Cloudflare Pages, and GitHub |
-| 📖 Glossary | 19 key terms defined |
-| 📱 Fully responsive | Sidebar collapses to a mobile menu; hub cards and tables reflow on small screens |
-| ↩️ Prev / next pagers | Every page links to the one before and after it |
-| ⚡ Zero build step | Pure HTML/CSS/JS, no framework or bundler required |
+- Ten focused pages, each with its own address, covering setup, building, deploying, installing, updating, troubleshooting, best practices, and a glossary.
+- Numbered steps along a route line, with the critical steps marked.
+- One-click copy buttons on every code sample and file template.
+- Search across steps, errors, and glossary terms with Ctrl K (⌘ K on Mac), or `/`.
+- A troubleshooting page with a quick diagnosis and eight expandable fixes.
+- A comparison of three hosting routes and a free-tier limits table.
+- Light and dark themes that follow your system and remember your choice.
+- Reads well on phones, and works offline after your first visit.
+- Print-friendly pages.
 
-## Tech Stack
+## How to use it
 
-- **HTML5 / CSS3 / Vanilla JS** — no frameworks
-- **Geist / Geist Mono** — display, body, and monospace font (Google Fonts)
-- Deployable as static files on GitHub Pages, Vercel, Netlify, Cloudflare Pages, or any static host
+1. Open the [live site](https://babatundeawo.github.io/ai-studio-android-guide/) and choose **Start with Part 1**, or pick a part from the sidebar.
+2. Follow the numbered steps in order. Parts 1 to 3 are shared; in Part 4 choose Vercel (Part 4) or Replit (Part 4B), or use AI Studio's Publish button described in Part 2.
+3. Press **Ctrl K** (⌘ K on Mac) to jump to any step, error message, or term.
+4. If something breaks, open **Troubleshooting** and follow the quick diagnosis.
 
-## Local Preview
+<p align="center">
+  <img src="docs/assets/preview-steps.png" alt="A guide page showing numbered steps connected by a route line, an alert, and a code sample with a copy button." width="520">
+  <img src="docs/assets/preview-mobile-dark.png" alt="The guide's home page on a phone in dark theme." width="180">
+</p>
 
-No build step needed. From the project folder:
+## Tech stack
 
-```bash
-python3 -m http.server 8080
-# then visit http://localhost:8080
+- Hand-written HTML, CSS, and JavaScript with no frameworks
+- A small build script (Node.js) that assembles pages from shared templates
+- [Geist and Geist Mono](https://vercel.com/font), self-hosted
+- GitHub Actions and GitHub Pages for building and hosting
+
+## Project structure
+
+```
+.
+├── src/
+│   ├── pages/       One file per page of the guide (content)
+│   ├── partials/    Shared page layout and icon set
+│   ├── css/         Design tokens and styles
+│   └── js/          Navigation, search, theme, copy buttons, offline support
+├── public/          Fonts, icons, and the social preview image
+├── scripts/         Build and quality-check scripts
+├── docs/            Maintainer guides and README images
+├── site.json        Site name, version, navigation, and page order
+└── .github/         Deployment, security scan, and issue templates
 ```
 
-Opening `index.html` directly with `file://` also works, since all assets are relative.
+## Contributing
 
-## Updating the Guide
+Spotted a mistake or an out-of-date step? [Open an issue](https://github.com/babatundeawo/ai-studio-android-guide/issues/new/choose) or send a pull request. [CONTRIBUTING.md](CONTRIBUTING.md) explains how, using only the GitHub website.
 
-Each page is a self-contained HTML file that includes the same sidebar and footer markup. To add or edit content:
+## Security
 
-1. Edit the relevant page's `<section class="doc-section">` content
-2. Keep shared styling in `css/style.css` and shared behaviour in `js/main.js` — the colour system lives entirely in the `:root` variables at the top of `style.css`, so a palette change there updates every page at once
-3. If you add a new page, copy the `<head>`, sidebar, and footer blocks from an existing page for consistency, and add a link to it in every page's sidebar
+To report a vulnerability privately, see [SECURITY.md](SECURITY.md).
+
+## License and credits
+
+© 2025–2026 Techbase Consultant Services. Published for educational reference. You may share and adapt it with attribution.
+
+Fonts: [Geist](https://github.com/vercel/geist-font) and Geist Mono by Vercel and Basement Studio, used under the [SIL Open Font License 1.1](public/fonts/OFL-Geist.txt).
 
 ## Author
 
-**Babatunde Awoyemi** — Atmospheric Physicist & Lead Consultant
-[Techbase Consultant Services](https://techbasengr.com.ng) · Ibadan, Nigeria
+**Babatunde Awoyemi**, Atmospheric Physicist & Lead Consultant, [Techbase Consultant Services](https://techbasengr.com.ng), Ibadan, Nigeria.
 [github.com/babatundeawo](https://github.com/babatundeawo) · [x.com/ba_awoyemi](https://x.com/ba_awoyemi)
 
-## Licence
-
-© 2025–2026 Techbase Consultant Services. Published for educational reference. You may share and adapt it with attribution.
+For maintainers: [Deployment guide](docs/DEPLOYMENT.md) · [Customizing guide](docs/CUSTOMIZING.md)

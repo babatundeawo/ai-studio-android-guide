@@ -1,0 +1,22 @@
+name: Content correction
+description: A step is wrong, unclear, or out of date.
+labels: ["content"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Which page and step?
+      placeholder: "Part 4, Step 15: Add Environment Variables"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong or unclear?
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: What should it say instead?
+      description: Link to the provider's documentation if you can.

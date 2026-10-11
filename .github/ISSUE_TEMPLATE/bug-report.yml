@@ -1,0 +1,16 @@
+name: Bug report
+description: Something on the site is broken.
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: Include the page address and what you expected to see.
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device and browser
+      placeholder: "Pixel 8, Chrome 130"

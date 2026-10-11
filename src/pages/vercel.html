@@ -1,0 +1,41 @@
+---
+title: Deploy to Vercel
+nav: Deploy to Vercel
+part: Part 4
+steps: Steps 12–16
+h1: Deploy to Vercel
+lead: Get your API key, import the project, add environment variables, and go live.
+reviewed: Reviewed September 2026 — Vercel Hobby limits verified against current docs
+description: Import your GitHub repo into Vercel, configure environment variables, and deploy your app live.
+---
+<div class="alert a-info"><div class="alert-body">Prefer a host without Vercel's non-commercial-use restriction? <a href="replit.html">Part 4B — Deploy to Replit</a> covers the same repo deployed a different way. Both lead to Part 5.</div></div>
+<ol class="steps">
+<li class="step"><span class="step-num">12</span><div class="step-main"><div class="step-head"><h2 class="step-title">Get Your Gemini API Key from AI Studio</h2></div><div class="step-content">
+<p>Return to <a href="https://aistudio.google.com">aistudio.google.com</a> and open the <strong>API Keys</strong> page (or the Secrets panel inside your Build-mode project). If you don't already have one, click <strong>Create API key</strong>. Copy the resulting key — it starts with <code>AIzaSy...</code></p>
+<div class="alert a-crit"><div class="alert-body"><strong>Never commit this key to GitHub.</strong> Anyone with it can use your API quota and, on a paid Cloud project, run up charges. Store it in a password manager immediately, and prefer keys restricted to the Generative Language API only.</div></div>
+</div></div></li>
+<li class="step"><span class="step-num">13</span><div class="step-main"><div class="step-head"><h2 class="step-title">Import Your Project to Vercel</h2></div><div class="step-content">
+<p>Go to <a href="https://vercel.com">vercel.com</a> → <strong>Add New… → Project</strong>. Vercel shows your GitHub repos — click <strong>Import</strong> next to your new repo. If it doesn't appear, click "Adjust GitHub App Permissions" and grant repository access.</p>
+</div></div></li>
+<li class="step is-key"><span class="step-num">15</span><div class="step-main"><div class="step-head"><h2 class="step-title">Add Environment Variables</h2><span class="tag tag-crit">Most critical</span></div><div class="step-content">
+<div class="alert a-crit"><div class="alert-body"><strong>Your app won't work without this step.</strong>AI Studio kept your key server-side automatically while you were inside its own preview — on Vercel, you must add it yourself. Add the same key under a few common variable names so it's picked up regardless of how your code reads it.</div></div>
+<div class="env-visual">
+<div class="env-row"><span class="env-key">GEMINI_API_KEY</span><span class="env-arrow">→</span><span class="env-val">AIzaSy… (your key)</span><div class="env-all"><span class="env-dot"></span><span class="env-dot"></span><span class="env-dot"></span></div></div>
+<div class="env-row"><span class="env-key">API_KEY</span><span class="env-arrow">→</span><span class="env-val">same key</span><div class="env-all"><span class="env-dot"></span><span class="env-dot"></span><span class="env-dot"></span></div></div>
+<div class="env-row"><span class="env-key">VITE_API_KEY</span><span class="env-arrow">→</span><span class="env-val">same key</span><div class="env-all"><span class="env-dot"></span><span class="env-dot"></span><span class="env-dot"></span></div></div>
+<div class="env-row"><span class="env-key">GOOGLE_GENERATIVE_AI_API_KEY</span><span class="env-arrow">→</span><span class="env-val">same key</span><div class="env-all"><span class="env-dot"></span><span class="env-dot"></span><span class="env-dot"></span></div></div>
+</div>
+<p>The three green dots = Production + Preview + Development. Leave all checked for each variable.</p>
+<div class="alert a-info"><div class="alert-body"><strong>Why several names?</strong> <code>GEMINI_API_KEY</code> is the name AI Studio's own runtime and the current Google GenAI SDKs read by default. <code>VITE_</code>-prefixed variables are what Vite exposes to client-side code at build time. Adding all four covers you regardless of exactly how your exported code references the key — check your <code>src</code> folder for the variable name actually used and prioritize that one.</div></div>
+</div></div></li>
+<li class="step"><span class="step-num">16</span><div class="step-main"><div class="step-head"><h2 class="step-title">Deploy &amp; Go Live</h2><span class="tag tag-ok">Final click</span></div><div class="step-content">
+<p>Scroll to the bottom of the Vercel configuration page and click the big <strong>Deploy</strong> button. The build typically takes 1–3 minutes. Watch the status:</p>
+<div class="pills">
+<span class="pill pill-yellow">Building…</span>
+<span class="pill pill-green">Ready</span>
+<span class="pill pill-red">Error: see <a href="troubleshoot.html">troubleshooting</a></span>
+</div>
+<p>On success you'll get your live URL: <code>your-project-name.vercel.app</code>, served over HTTPS automatically — a requirement for installing as a PWA.</p>
+<div class="alert a-info"><div class="alert-body"><strong>Free tier reminder:</strong> Vercel's Hobby plan currently includes 100 GB of Fast Data Transfer, 1,000,000 function invocations, and up to 200 projects per month, at no cost — comfortably enough for a personal project or demo, but it's for non-commercial use only (per Vercel's Fair Use guidelines). See the <a href="tips.html#tier-table">Best Practices page</a> for the full free-tier comparison.</div></div>
+</div></div></li>
+</ol>

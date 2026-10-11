@@ -1,0 +1,52 @@
+---
+title: Update Workflow
+nav: Update Workflow
+part: Part 6
+steps: Steps 21–23
+h1: Update Workflow
+lead: Understanding this SOP will save you hours of frustration every time you push changes.
+reviewed: Reviewed September 2026
+description: The exact SOP to follow when updating your app so an AI Studio export never breaks your live site.
+---
+<div class="alert a-warn"><div class="alert-body"><strong>Known Issue:</strong> When you update your app in AI Studio and export to GitHub again, the agent can occasionally regenerate <code>index.html</code> without the critical <code>&lt;script&gt;</code> tag or manifest link. This causes a blank page. The SOP below prevents it.</div></div>
+<div class="sop-chain">
+<div class="sop-item sop-1">
+<div class="sop-left"><div class="sop-circle">1</div></div>
+<div class="sop-right"><h4>Make Changes in AI Studio</h4><p>Update your app's features, AI behaviour, or interface by chatting with the Build agent or editing code directly. Test thoroughly in the live preview before doing anything else.</p></div>
+</div>
+<div class="sop-item sop-2">
+<div class="sop-left"><div class="sop-circle">2</div></div>
+<div class="sop-right">
+<h4>Re-check Critical Files in AI Studio — BEFORE Exporting</h4>
+<p>Verify <code>index.html</code> still has the script tag. If missing, add it back now:</p>
+<figure class="code"><div class="code-bar"><span class="code-label">html · must be present</span><button class="copy-btn" data-copy="" type="button">Copy</button></div><pre><code><span class="tag-c">&lt;script</span> <span class="attr">type</span>=<span class="str">"module"</span> <span class="attr">src</span>=<span class="str">"/index.tsx"</span><span class="tag-c">&gt;&lt;/script&gt;</span></code></pre></figure>
+<p>Also verify <code>manifest.json</code> is still present and correct.</p>
+</div>
+</div>
+<div class="sop-item sop-3">
+<div class="sop-left"><div class="sop-circle">3</div></div>
+<div class="sop-right"><h4>Export to GitHub</h4><p>Click "Export to GitHub" in AI Studio. Wait for the commit confirmation before proceeding.</p></div>
+</div>
+<div class="sop-item sop-4">
+<div class="sop-left"><div class="sop-circle">4</div></div>
+<div class="sop-right"><h4>Verify on GitHub (If Unsure)</h4><p>Open your repo and check <code>index.html</code>. If the script tag is missing, edit the file directly on GitHub, add it back, and commit with: <code>Restore script tag after AI Studio update</code></p></div>
+</div>
+<div class="sop-item sop-5">
+<div class="sop-left"><div class="sop-circle">5</div></div>
+<div class="sop-right"><h4>Wait for Auto-Deploy (1–2 min)</h4><p>Vercel or Netlify/Cloudflare Pages detect the commit and automatically rebuild (Replit needs a manual re-deploy click — see <a href="replit.html">Part 4B</a>). Monitor progress in your host's dashboard. Your installed Android app will reflect the update after a refresh or restart — Chrome updates installed PWAs in the background on a normal cache cycle.</p></div>
+</div>
+</div>
+<div>
+<h2 class="subhead">Advanced: Git CLI workflow</h2>
+<figure class="code"><div class="code-bar"><span class="code-label">bash</span><button class="copy-btn" data-copy="" type="button">Copy</button></div><pre><code><span class="com"># Clone your repo locally</span>
+<span class="fn">git</span> clone https://github.com/your-username/your-repo.git
+<span class="kw">cd</span> your-repo
+
+<span class="com"># After AI Studio pushes an update</span>
+<span class="fn">git</span> pull origin main
+
+<span class="com"># Check and fix index.html if needed, then:</span>
+<span class="fn">git</span> add index.html
+<span class="fn">git</span> commit -m <span class="str">"Restore script tag after AI Studio update"</span>
+<span class="fn">git</span> push origin main</code></pre></figure>
+</div>
