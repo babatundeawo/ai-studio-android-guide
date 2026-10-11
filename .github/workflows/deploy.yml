@@ -42,7 +42,7 @@ jobs:
         run: npx --yes @lhci/cli@0.14.0 autorun --config=lighthouserc.json
 
       - name: Save the built site so you can download and preview it
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: site-preview
           path: dist
