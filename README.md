@@ -9,7 +9,7 @@
 
 [![Build and deploy](https://github.com/babatundeawo/ai-studio-android-guide/actions/workflows/deploy.yml/badge.svg)](https://github.com/babatundeawo/ai-studio-android-guide/actions/workflows/deploy.yml)
 [![Live site](https://img.shields.io/website?url=https%3A%2F%2Fbabatundeawo.github.io%2Fai-studio-android-guide%2F&label=live%20site)](https://babatundeawo.github.io/ai-studio-android-guide/)
-![Version 4.0](https://img.shields.io/badge/version-4.0-4338ca)
+![Version 5.0](https://img.shields.io/badge/version-5.0-4338ca)
 
 [Live site](https://babatundeawo.github.io/ai-studio-android-guide/) ·
 [Documentation](docs/) ·
@@ -33,8 +33,12 @@ AI Studio → Android is a free, multi-page guide for anyone who wants to ship a
 - Search across steps, errors, and glossary terms with Ctrl K (⌘ K on Mac), or `/`.
 - A troubleshooting page with a quick diagnosis and eight expandable fixes.
 - A comparison of three hosting routes and a free-tier limits table.
+- Tick steps off as you finish them. Your progress stays on your device, the home page offers to continue where you left off, and the route map fills in as you go.
+- Install it as an app: Chrome and Android show an install prompt, and iPhone gets a short Add to Home Screen guide.
+- Works offline after your first visit, with a friendly offline page and an update prompt when a new version is ready.
+- Share any page with one tap.
 - Light and dark themes that follow your system and remember your choice.
-- Reads well on phones, and works offline after your first visit.
+- Reads well on phones, from 320 px wide up.
 - Print-friendly pages.
 
 ## How to use it
@@ -52,7 +56,8 @@ AI Studio → Android is a free, multi-page guide for anyone who wants to ship a
 ## Tech stack
 
 - Hand-written HTML, CSS, and JavaScript with no frameworks
-- A small build script (Node.js) that assembles pages from shared templates
+- A small build script (Node.js, no dependencies) that assembles pages from shared templates
+- A hand-written service worker and web app manifest for offline use and installation
 - [Geist and Geist Mono](https://vercel.com/font), self-hosted
 - GitHub Actions and GitHub Pages for building and hosting
 
@@ -64,8 +69,8 @@ AI Studio → Android is a free, multi-page guide for anyone who wants to ship a
 │   ├── pages/       One file per page of the guide (content)
 │   ├── partials/    Shared page layout and icon set
 │   ├── css/         Design tokens and styles
-│   └── js/          Navigation, search, theme, copy buttons, offline support
-├── public/          Fonts, icons, and the social preview image
+│   └── js/          Navigation, search, theme, progress, install, offline support
+├── public/          Fonts, icons, app screenshots, and the social preview image
 ├── scripts/         Build and quality-check scripts
 ├── docs/            Maintainer guides and README images
 ├── site.json        Site name, version, navigation, and page order

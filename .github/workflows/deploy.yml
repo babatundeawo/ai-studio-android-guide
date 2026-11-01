@@ -31,9 +31,13 @@ jobs:
           node-version: 22
 
       - name: Build the site
+        env:
+          # Optional. Leave unset for the github.io address in site.json.
+          # For a custom domain, add a repository variable named SITE_URL (see docs/DEPLOYMENT.md).
+          SITE_URL: ${{ vars.SITE_URL }}
         run: npm run build
 
-      - name: Check links, titles and accessibility basics
+      - name: Check links, titles, app files and accessibility basics
         run: npm run check
 
       - name: Lighthouse report (informational)

@@ -1,6 +1,6 @@
 {
   "name": "ai-studio-android-guide",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "private": true,
   "description": "Step-by-step guide to deploying Google AI Studio apps as installable Android PWAs.",
   "license": "SEE LICENSE IN README.md",

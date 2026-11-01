@@ -30,12 +30,16 @@
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="AI Studio → Android">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="preload" href="fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script src="js/theme-init.js"></script>
 <link rel="stylesheet" href="css/style.css?v={{build}}">
 <script type="application/ld+json">{{jsonld}}</script>
 </head>
-<body class="{{bodyClass}}">
+<body class="{{bodyClass}}" data-page="{{page}}">
 <a class="skip-link" href="#main">Skip to content</a>
 {{icons}}
 <div class="progress" aria-hidden="true"><span class="progress-bar"></span></div>
@@ -61,6 +65,9 @@
   <nav class="nav" aria-label="Guide sections">
 {{nav}}
   </nav>
+  <div class="sidebar-install" id="sidebar-install" hidden>
+    <button class="btn btn-ghost btn-sm" type="button" id="install-btn"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-install"/></svg>Install as an app</button>
+  </div>
   <div class="sidebar-foot">
     <span class="meta-chip">v{{version}}, {{updated}}</span>
     <button class="icon-btn" type="button" id="theme-btn" aria-label="Switch to dark theme"><svg class="ico" data-icon-moon><use href="#i-moon"/></svg><svg class="ico" data-icon-sun hidden><use href="#i-sun"/></svg></button>
@@ -83,12 +90,27 @@
   <form method="dialog" class="palette-form" role="search">
     <div class="palette-field">
       <svg class="ico" aria-hidden="true"><use href="#i-search"/></svg>
-      <input id="palette-input" type="search" placeholder="Search steps, errors, terms" autocomplete="off" spellcheck="false" aria-label="Search the guide" aria-controls="palette-results">
+      <input id="palette-input" type="search" role="combobox" aria-expanded="false" aria-autocomplete="list" placeholder="Search steps, errors, terms" autocomplete="off" spellcheck="false" aria-label="Search the guide" aria-controls="palette-results">
       <button class="palette-esc" type="submit" aria-label="Close search">Esc</button>
     </div>
   </form>
   <ul class="palette-results" id="palette-results" role="listbox" aria-label="Results"></ul>
   <p class="palette-empty" id="palette-empty" hidden>No matches. Try a shorter word, like "manifest" or "key".</p>
+</dialog>
+
+<div class="toasts" id="toasts" role="region" aria-label="Notifications" aria-live="polite"></div>
+
+<dialog class="sheet" id="ios-install" aria-labelledby="ios-title">
+  <form method="dialog">
+    <h2 id="ios-title" class="sheet-title">Add this guide to your Home Screen</h2>
+    <p class="sheet-lead">On iPhone and iPad there is no install button, so you add it from the Share menu.</p>
+    <ol class="ios-steps">
+      <li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-share"/></svg><span>Open this page in <strong>Safari</strong> and tap the <strong>Share</strong> button (a square with an arrow pointing up).</span></li>
+      <li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-plus-square"/></svg><span>Scroll down and tap <strong>Add to Home Screen</strong>.</span></li>
+      <li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Tap <strong>Add</strong>. The guide now opens from your Home Screen like an app.</span></li>
+    </ol>
+    <button class="btn btn-primary" type="submit">Got it</button>
+  </form>
 </dialog>
 
 <script src="js/main.js?v={{build}}" defer></script>

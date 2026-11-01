@@ -13,6 +13,10 @@ Where to change things. Every file can be edited on the GitHub website with the 
 | Logo mark | the `i-mark` symbol in `src/partials/icons.svg`, plus `public/icons/icon.svg` |
 | Favicons and app icons | `public/icons/` and `public/favicon.ico` |
 | Social preview image | `public/og-image.png` (1200 × 630) |
+| Install screenshots | `public/screenshots/` (keep the exact pixel sizes: wide 1280 × 820, narrow 780 × 1560; the build checks them) |
+| Install shortcuts (long-press the app icon) | the `shortcuts` list in `scripts/build.mjs` |
+| Progress, install prompt, share, update message | `src/js/main.js`; their styles are in `src/css/04b-app.css` |
+| Offline behaviour | `src/js/sw.template.js` |
 | Header, sidebar, or footer layout | `src/partials/layout.html` |
 
 ## Colors

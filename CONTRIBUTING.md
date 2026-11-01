@@ -20,7 +20,7 @@ The site is built with Node.js 20 or later and no dependencies:
 
 ```bash
 npm run build   # writes the site to dist/
-npm run check   # checks links, titles, and headings in dist/
+npm run check   # checks links, titles, headings, and the app files (manifest, icons, offline cache list) in dist/
 ```
 
 `src/` is the source and `dist/` is generated, so never edit `dist/`. See [docs/CUSTOMIZING.md](docs/CUSTOMIZING.md) for where things live.

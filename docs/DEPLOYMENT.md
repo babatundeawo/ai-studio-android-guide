@@ -17,9 +17,9 @@ Pull requests are built and checked too, but never published. The live site chan
 
 > **Order matters.** The old site was served straight from the repository files. Once the new version is merged, those files are no longer the finished site, so the Source setting must be **GitHub Actions**. Do steps 1 to 3 and the merge back to back to keep the gap short. If the first run shows a red cross because Pages wasn't switched yet, switch it and click **Re-run all jobs** on that run.
 
-## Review and merge the redesign
+## Review and merge a new version
 
-1. Click **Pull requests** and open **Premium redesign**.
+1. Click **Pull requests** and open the pull request for the new version.
 2. Click the **Checks** tab. A green tick next to **Build and check** means the site built and all links work. The Lighthouse step shows scores in its log; it never blocks anything.
 3. To look at the result before publishing: on the same run page, scroll to **Artifacts**, download **site-preview**, unzip it, and open `index.html`. Search and offline mode only work on the live site.
 4. Happy? Click **Merge pull request**, then **Confirm merge**. Not happy? Click **Close pull request**. Nothing changes on the live site.
@@ -54,7 +54,17 @@ For a change committed directly to `main`: click **Commits**, open the commit, a
 1. In **Settings → Pages → Custom domain**, type your domain (for example `guide.example.com`) and click **Save**.
 2. At your domain provider's DNS settings, add a record. For a subdomain, add a **CNAME** record pointing to `babatundeawo.github.io`. For a bare domain, add four **A** records: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, and `185.199.111.153`.
 3. Wait for DNS to update (minutes to a few hours), then tick **Enforce HTTPS**.
-4. Open `site.json` on GitHub, change `"url"` to your new address (keep the trailing slash), and commit. This updates links used by search engines and social previews.
+4. Open `site.json` on GitHub, change `"url"` to your new address (keep the trailing slash), and commit. This updates links used by search engines, social previews, and the installed app.
+
+Alternative to step 4: in **Settings → Secrets and variables → Actions → Variables**, click **New repository variable**, name it `SITE_URL`, set the value to your address (with a trailing slash), and save. It overrides `site.json` without editing any file.
+
+## If you rename the repository
+
+The site's address contains the repository name. After renaming, open `site.json` and change `"url"` to the new address, then commit. If you forget, the build stops with a clear message that says exactly what to change, instead of publishing a broken site.
+
+## What visitors see when you publish an update
+
+Visitors who installed the guide get a small "A new version of the guide is ready" message with a **Refresh** button. Nothing changes under them until they tap it, and they are never stuck on an old version: pages always load fresh when they are online.
 
 ## Security scanning
 

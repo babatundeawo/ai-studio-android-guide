@@ -108,7 +108,7 @@ main { display: block; outline: none; }
 .palette-esc { padding: 0.25rem 0.5rem; min-height: 2rem; border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg); color: var(--ink-3); font: 500 0.75rem var(--font-mono); }
 .palette-results { list-style: none; max-height: 22rem; overflow-y: auto; padding: var(--s-2); }
 .palette-results a { display: grid; gap: 1px; padding: var(--s-3); border-radius: var(--r-md); color: var(--ink); text-decoration: none; min-height: 2.75rem; }
-.palette-results li[aria-selected="true"] a, .palette-results a:hover { background: var(--brand-tint); }
+.palette-results a:hover { background: var(--brand-tint); }
 .pr-title { font-weight: 600; }
 .pr-where { font-size: var(--t-xs); color: var(--ink-3); }
 .palette-empty { margin: 0; padding: var(--s-5); color: var(--ink-3); }

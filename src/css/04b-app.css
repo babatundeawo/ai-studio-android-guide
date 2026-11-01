@@ -1,0 +1,60 @@
+/* ═══ App layer: progress, install, toasts, share ═══════════ */
+.btn-sm { min-height: 2.75rem; padding: 0 var(--s-4); }
+
+/* Toasts */
+.toasts { position: fixed; z-index: var(--z-dialog); inset: auto 0 0 0; display: grid; gap: var(--s-3); justify-items: center; padding: var(--s-4) var(--s-4) calc(var(--s-4) + env(safe-area-inset-bottom)); pointer-events: none; }
+.toast { pointer-events: auto; display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3); width: min(34rem, 100%); padding: var(--s-3) var(--s-4); border: 1px solid var(--line-strong); border-radius: var(--r-lg); background: var(--bg-elev); color: var(--ink); box-shadow: var(--sh-2); animation: pop var(--dur-2) var(--ease); }
+.toast p { flex: 1 1 13rem; margin: 0; font-size: var(--t-sm); }
+.toast-actions { display: flex; gap: var(--s-2); }
+.toast-actions:empty { display: none; }
+
+/* Mark a step done */
+.done-btn { display: inline-flex; align-items: center; gap: var(--s-2); min-height: 2.75rem; margin-left: auto; padding: 0 var(--s-4) 0 var(--s-3); border: 1px solid var(--line-strong); border-radius: var(--r-pill); background: transparent; color: var(--ink-2); font: 600 var(--t-xs)/1 var(--font-sans); cursor: pointer; transition: background var(--dur-1), border-color var(--dur-1), color var(--dur-1); }
+.done-btn:hover { border-color: var(--ink-3); color: var(--ink); }
+.done-box { display: grid; place-items: center; width: 1.125rem; height: 1.125rem; border: 2px solid var(--ink-3); border-radius: 50%; }
+.done-btn[aria-pressed="true"] { background: var(--accent-tint); border-color: var(--accent); color: var(--accent); }
+.done-btn[aria-pressed="true"] .done-box { background: var(--accent-fill); border-color: var(--accent); }
+.done-btn[aria-pressed="true"] .done-box::after { content: ""; width: 0.3rem; height: 0.55rem; margin-top: -0.1rem; border: solid #052e16; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.step.is-done .step-num { background: var(--accent-fill); border-color: var(--accent); color: #052e16; box-shadow: 0 0 0 5px var(--accent-tint); }
+.phone-step .done-btn { margin: var(--s-2) 0 0; justify-self: start; }
+.phone-step.is-done { border-color: var(--accent); background: var(--accent-tint); }
+
+/* Page progress and share */
+.page-progress { display: flex; align-items: center; gap: var(--s-3); max-width: 22rem; margin-top: var(--s-4); color: var(--ink-2); font-size: var(--t-sm); }
+.pp-bar { flex: 1; height: 0.5rem; overflow: hidden; border: 1px solid var(--line); border-radius: var(--r-pill); background: var(--bg-sunk); }
+.pp-fill { display: block; height: 100%; transform-origin: left; transform: scaleX(var(--p, 0)); background: linear-gradient(90deg, var(--brand-fill), var(--accent-fill)); transition: transform var(--dur-3) var(--ease); }
+.pp-text { font-weight: 600; white-space: nowrap; }
+.share-btn { min-height: 2.75rem; }
+.nav-link.is-complete .nav-dot { background: var(--accent-fill); border-color: var(--accent-fill); }
+.offline-list { display: grid; gap: var(--s-2); max-width: var(--measure); margin: 0 0 var(--s-5); padding-left: var(--s-5); }
+
+/* Home: continue card, living route, part progress */
+.resume { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-4); max-width: 40rem; margin-top: var(--s-5); padding: var(--s-4) var(--s-5); border: 1px solid var(--line-strong); border-left: 4px solid var(--accent-fill); border-radius: var(--r-lg); background: var(--bg-elev); }
+.resume > div { flex: 1 1 14rem; }
+.resume p { margin: 0; }
+.resume-kicker { color: var(--accent); font-size: var(--t-xs); font-weight: 700; }
+.resume-title { font-size: var(--t-lg); font-weight: 680; letter-spacing: -0.02em; }
+.resume-sub { color: var(--ink-3); font-size: var(--t-sm); }
+.route-stop[data-state="done"] .route-node { background: var(--accent-fill); border-color: var(--accent); display: grid; place-items: center; }
+.route-stop[data-state="done"] .route-node::after { content: ""; width: 0.35rem; height: 0.65rem; margin-top: -0.12rem; border: solid #052e16; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.route-stop[data-state="active"] .route-node { background: var(--brand-tint); box-shadow: 0 0 0 5px var(--brand-tint); }
+.hub-meta .hub-progress { display: block; color: var(--accent); font-weight: 650; }
+
+/* Install button and iPhone sheet */
+.sidebar-install { padding-top: var(--s-2); }
+.sidebar-install .btn { width: 100%; }
+.sheet { width: min(30rem, calc(100vw - 2rem)); margin: auto; padding: var(--s-5); border: 1px solid var(--line-strong); border-radius: var(--r-lg); background: var(--bg-elev); color: var(--ink); box-shadow: var(--sh-2); }
+.sheet::backdrop { background: rgb(8 12 28 / 0.55); }
+.sheet[open] { animation: pop var(--dur-2) var(--ease); }
+.sheet form { margin: 0; }
+.sheet-title { font-size: var(--t-xl); font-weight: 700; letter-spacing: -0.03em; margin-bottom: var(--s-2); }
+.sheet-lead { color: var(--ink-2); }
+.ios-steps { list-style: none; display: grid; gap: var(--s-3); margin: var(--s-4) 0 var(--s-5); }
+.ios-steps li { display: grid; grid-template-columns: 2.75rem 1fr; gap: var(--s-3); align-items: center; padding: var(--s-3); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg-sunk); }
+.ios-steps .ico { width: 2.75rem; height: 2.75rem; padding: 0.6rem; border-radius: var(--r-md); background: var(--brand-tint); color: var(--brand); }
+.ios-steps span { font-size: var(--t-sm); }
+
+/* Search results are options now, so highlight the option itself */
+.palette-results a[aria-selected="true"] { background: var(--brand-tint); }
+
+@media (prefers-reduced-motion: reduce) { .pp-fill { transition: none; } }
