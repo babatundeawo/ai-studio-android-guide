@@ -6,7 +6,7 @@ body:
     id: page
     attributes:
       label: Which page and step?
-      placeholder: "Part 4, Step 15: Add Environment Variables"
+      placeholder: "Part 4, Step 13: Add Environment Variables"
     validations:
       required: true
   - type: textarea

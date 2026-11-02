@@ -12,15 +12,16 @@ Thanks for helping keep this guide accurate. You can contribute using only the G
 
 1. Open the page file in `src/pages/` and click the pencil icon.
 2. Make your change and click **Commit changes**, then **Propose changes**.
-3. Click **Create pull request**. A green tick on the pull request means the site still builds and every link works.
+3. Click **Create pull request**. A green tick on the pull request means the site still builds, every link works, and the colors pass the contrast check.
 
 ## Working on the code
 
-The site is built with Node.js 20 or later and no dependencies:
+The site is built with Node.js 22 or later and has no dependencies:
 
 ```bash
-npm run build   # writes the site to dist/
-npm run check   # checks links, titles, headings, and the app files (manifest, icons, offline cache list) in dist/
+npm run build      # writes the site to dist/
+npm run check      # checks links, titles, the manifest, and offline files in dist/
+npm run contrast   # checks text colors against WCAG AA
 ```
 
 `src/` is the source and `dist/` is generated, so never edit `dist/`. See [docs/CUSTOMIZING.md](docs/CUSTOMIZING.md) for where things live.

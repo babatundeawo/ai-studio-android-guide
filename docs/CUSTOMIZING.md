@@ -8,20 +8,21 @@ Where to change things. Every file can be edited on the GitHub website with the 
 | Page title, description, or heading | the block between the `---` lines at the top of that page file |
 | Colors (light and dark) | `src/css/00-tokens.css` |
 | Fonts | `src/css/00-tokens.css` (the `@font-face` lines) and the files in `public/fonts/` |
-| Version, update date, site address | `site.json` |
+| Version, update date, site name | `site.json` |
 | Sidebar menu and page order | `site.json` (`nav` and `order`) |
+| Light, dark, or automatic theme | `site.json` (`themeMode`) |
 | Logo mark | the `i-mark` symbol in `src/partials/icons.svg`, plus `public/icons/icon.svg` |
-| Favicons and app icons | `public/icons/` and `public/favicon.ico` |
+| App icons | `public/icons/` and `public/favicon.ico` |
 | Social preview image | `public/og-image.png` (1200 × 630) |
-| Install screenshots | `public/screenshots/` (keep the exact pixel sizes: wide 1280 × 820, narrow 780 × 1560; the build checks them) |
-| Install shortcuts (long-press the app icon) | the `shortcuts` list in `scripts/build.mjs` |
-| Progress, install prompt, share, update message | `src/js/main.js`; their styles are in `src/css/04b-app.css` |
-| Offline behaviour | `src/js/sw.template.js` |
 | Header, sidebar, or footer layout | `src/partials/layout.html` |
 
 ## Colors
 
-The palette is a set of named values at the top of `src/css/00-tokens.css`. Change a value there and every page follows. Light colors are in `:root`; dark colors are in the `[data-theme="dark"]` block and again in the `prefers-color-scheme` block below it. Keep text colors dark enough on their backgrounds to stay readable.
+The palette is a set of named values at the top of `src/css/00-tokens.css`. Change a value there and every page follows. Light colors are in `:root`. Dark colors are in the `[data-theme="dark"]` block, which is the only place to edit them: the build copies it into the "follow the system" rule for you. Text colors are checked automatically when you commit. If a pair is too low in contrast, the build stops and names it.
+
+## Light only, dark only, or automatic
+
+In `site.json`, set `"themeMode"` to `"system"` (follow the visitor's device, with a toggle), `"light"`, or `"dark"` (one theme, no toggle).
 
 ## Add a page
 
@@ -32,22 +33,31 @@ The palette is a set of named values at the top of `src/css/00-tokens.css`. Chan
    title: Example page
    nav: Example
    part: Reference
-   steps: 3 tips
    h1: Example page
    lead: One sentence that introduces the page.
-   reviewed: Reviewed October 2026
+   reviewed: Reviewed November 2026
    description: A sentence for search results.
    ---
    <p>Your content here.</p>
    ```
 
 2. Open `site.json`, add `{ "page": "example", "label": "Example" }` under the right `nav` group, and add `"example"` to `order` where it should appear.
-3. Commit. The next build creates `example.html`, adds it to search and the sitemap, and links it in the sidebar and pager.
+3. Commit. The next build creates `example.html`, adds it to search, the sitemap, and the offline files, and links it in the sidebar and pager.
 
 ## Content building blocks
 
 Copy a block from an existing page and change the text: steps (`<ol class="steps">`), alerts (`alert a-info`, `a-warn`, `a-crit`, `a-ok`), code samples (`<figure class="code">`), tables, and expandable issues (`<details class="issue">`).
 
+## Steps and progress
+
+Write a step with an empty number: `<span class="step-num"></span>`. The build numbers steps across the whole guide in page order, adds the "Mark as done" button, and counts them in the sidebar. A step with its own label, such as `6B` or `R1`, keeps that label and counts as optional. To make a whole page optional, add `optional: true` to its header.
+
+## Replace the app icons
+
+1. Edit `public/icons/icon.svg` (rounded icon) and `design/icon-maskable.svg` (full-square icon with the artwork kept inside the middle 80%).
+2. Export these files as PNG at the sizes below and replace the files in `public/icons/`: `icon-192.png` (192 × 192), `icon-512.png` (512 × 512), `icon-maskable-512.png` (512 × 512), `apple-touch-icon.png` (180 × 180).
+3. Replace `public/favicon.ico` with a 32 × 32 icon.
+
 ## Update the "last reviewed" date
 
-Change the `reviewed:` line at the top of each page, and `version` and `updated` in `site.json`.
+Change the `reviewed:` line at the top of each page you re-checked, and `version`, `updated`, and `updatedISO` in `site.json`.

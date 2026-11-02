@@ -1,0 +1,34 @@
+name: Check pull request
+
+# Builds and checks the site for every pull request, but never publishes it.
+# GitHub Pages has no built-in preview, so the built site is saved as a download:
+# open the run, scroll to Artifacts, download site-preview, unzip it, open index.html.
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Build and check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v7
+
+      - name: Build and check
+        uses: ./.github/actions/build-site
+
+      - name: Save the built site so you can download and preview it
+        uses: actions/upload-artifact@v7
+        with:
+          name: site-preview
+          path: dist
+          retention-days: 14

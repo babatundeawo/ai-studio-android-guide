@@ -1,6 +1,6 @@
 # Security
 
-This site is static: it has no accounts, forms, or stored data.
+This site is static: it has no accounts, forms, or stored data. Progress ticks are kept in your own browser and never sent anywhere.
 
 ## Report a vulnerability
 

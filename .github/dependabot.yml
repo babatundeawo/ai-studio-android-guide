@@ -1,11 +1,16 @@
-# Keeps the automation in .github/workflows up to date. Dependabot opens a
-# pull request when a newer version of an action is released; review and merge it
+# Keeps the automation in .github up to date. Dependabot opens one pull request
+# a week when newer versions of the actions are released. Review and merge it
 # from the GitHub website like any other pull request.
 version: 2
 updates:
   - package-ecosystem: github-actions
-    directory: /
+    directories:
+      - /
+      - /.github/actions/build-site
     schedule:
       interval: weekly
+    groups:
+      actions:
+        patterns: ["*"]
     commit-message:
       prefix: "chore"

@@ -25,9 +25,18 @@ code, kbd, pre { font-family: var(--font-mono); }
 
 /* Reading progress */
 .progress { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: var(--z-skip); pointer-events: none; }
-.progress-bar { display: block; height: 100%; transform-origin: left; transform: scaleX(var(--p, 0)); background: linear-gradient(90deg, var(--brand-fill), var(--accent-fill)); }
+.progress-bar { display: block; height: 100%; transform-origin: left; transform: scaleX(var(--p, 0)); background: linear-gradient(90deg, var(--brand-fill), var(--lime)); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
+
+.btn-sm { min-height: 2.5rem; padding: 0 var(--s-4); font-size: var(--t-xs); }
+.link-btn { padding: 0; border: 0; background: none; color: var(--brand); font: inherit; font-size: var(--t-xs); font-weight: 600; text-decoration: underline; text-underline-offset: 0.18em; cursor: pointer; min-height: 1.5rem; }
+.link-btn:hover { text-decoration-thickness: 0.14em; }
+html.js .will-reveal { opacity: 0; transform: translateY(14px); }
+html.js .will-reveal.is-in { opacity: 1; transform: none; transition: opacity var(--dur-3) var(--ease) var(--d, 0ms), transform var(--dur-3) var(--ease) var(--d, 0ms); }
+body { overscroll-behavior-y: none; }
+@media (display-mode: standalone) { body { -webkit-user-select: none; user-select: none; } .prose, .doc-body, .home, input, textarea, pre, code { -webkit-user-select: text; user-select: text; } }
+@media (hover: none) { .btn:active, .icon-btn:active { transform: scale(0.97); } }

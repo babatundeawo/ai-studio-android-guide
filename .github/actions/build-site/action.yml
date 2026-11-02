@@ -1,0 +1,33 @@
+name: Build and check the site
+description: Builds the site into dist/ and runs every quality check. Used by the deploy and pull request workflows.
+inputs:
+  site-url:
+    description: The public address of the site. Leave empty to work it out from the repository name.
+    required: false
+    default: ""
+runs:
+  using: composite
+  steps:
+    - name: Set up Node.js
+      uses: actions/setup-node@v7
+      with:
+        node-version: lts/*
+
+    - name: Check the scripts for syntax errors
+      shell: bash
+      run: |
+        for f in scripts/*.mjs src/js/*.js; do node --check "$f"; done
+
+    - name: Check text colours for contrast
+      shell: bash
+      run: node scripts/contrast.mjs
+
+    - name: Build the site
+      shell: bash
+      env:
+        SITE_URL: ${{ inputs.site-url }}
+      run: node scripts/build.mjs
+
+    - name: Check links, titles, manifest, and offline files
+      shell: bash
+      run: node scripts/check.mjs

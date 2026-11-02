@@ -1,0 +1,31 @@
+/* ═══ App layer: toasts, install, offline, dialogs ═══ */
+.toasts { position: fixed; left: var(--s-4); right: var(--s-4); bottom: calc(var(--s-4) + env(safe-area-inset-bottom)); z-index: var(--z-toast); display: grid; gap: var(--s-2); justify-items: center; pointer-events: none; }
+.toast { pointer-events: auto; display: flex; align-items: center; gap: var(--s-3); max-width: 30rem; width: 100%; padding: var(--s-2) var(--s-2) var(--s-2) var(--s-4); border: 1px solid var(--line-strong); border-radius: var(--r-lg); background: var(--bg-elev); color: var(--ink); box-shadow: var(--sh-2); animation: toast-in var(--dur-2) var(--ease-spring); }
+.toast p { margin: 0; flex: 1; font-size: var(--t-sm); }
+@keyframes toast-in { from { opacity: 0; transform: translateY(12px); } }
+.net-pill { position: fixed; top: calc(var(--s-3) + env(safe-area-inset-top)); left: 50%; transform: translateX(-50%); z-index: var(--z-toast); max-width: calc(100vw - 2rem); padding: 0.4rem 1rem; border-radius: var(--r-pill); background: var(--warn-bg); color: var(--warn); border: 1px solid var(--warn); font-size: var(--t-xs); font-weight: 650; text-align: center; }
+
+.install-banner { position: fixed; left: var(--s-3); right: var(--s-3); bottom: calc(var(--s-3) + env(safe-area-inset-bottom)); z-index: var(--z-bar); display: flex; align-items: center; gap: var(--s-3); max-width: 32rem; margin: 0 auto; padding: var(--s-3); border: 1px solid var(--line-strong); border-radius: var(--r-lg); background: var(--bg-elev); box-shadow: var(--sh-2); animation: toast-in var(--dur-3) var(--ease-spring); }
+.ib-mark { display: grid; place-items: center; flex: none; width: 2.5rem; height: 2.5rem; border-radius: var(--r-md); background: var(--brand-tint); color: var(--brand); }
+.ib-text { display: grid; flex: 1; min-width: 0; margin: 0; font-size: var(--t-sm); line-height: 1.35; }
+.ib-text span { color: var(--ink-3); font-size: var(--t-xs); }
+body:has(.install-banner:not([hidden])) .to-top { bottom: calc(var(--s-4) + env(safe-area-inset-bottom) + 5.5rem); }
+
+.sheet { width: min(32rem, calc(100vw - 1.5rem)); max-height: 88dvh; margin: auto; padding: 0; border: 1px solid var(--line-strong); border-radius: var(--r-xl); background: var(--bg-elev); color: var(--ink); box-shadow: var(--sh-2); overflow: auto; z-index: var(--z-dialog); }
+.sheet::backdrop { background: rgb(5 12 9 / 0.6); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+.sheet[open] { animation: pop var(--dur-2) var(--ease); }
+.sheet-head { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); padding: var(--s-3) var(--s-3) var(--s-3) var(--s-5); border-bottom: 1px solid var(--line); }
+.sheet-head h2 { font-size: var(--t-lg); font-weight: 700; letter-spacing: -0.02em; }
+.sheet-body { padding: var(--s-5); display: grid; gap: var(--s-5); }
+.sheet-body p { margin: 0; color: var(--ink-2); }
+.how-block h3 { font-size: var(--t-base); font-weight: 680; margin-bottom: var(--s-3); }
+.how { list-style: none; display: grid; gap: var(--s-3); }
+.how li { display: grid; grid-template-columns: 2.75rem 1fr; gap: var(--s-3); align-items: center; padding: var(--s-2); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg); font-size: var(--t-sm); }
+.how-ico { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: var(--r-md); background: var(--bg-elev); border: 1px solid var(--line-strong); color: var(--brand); }
+.how-ok { background: var(--ok-bg); border-color: var(--ok); color: var(--ok); }
+.how-note { margin-top: var(--s-3) !important; font-size: var(--t-xs); color: var(--ink-3) !important; }
+
+.resume { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-3) var(--s-5); margin-top: var(--s-5); padding: var(--s-4) var(--s-5); max-width: 46rem; border: 1px solid var(--ok); border-radius: var(--r-lg); background: var(--ok-bg); }
+.resume-title { margin: 0; font-size: var(--t-base); font-weight: 700; color: var(--ok); }
+.resume-lead { margin: 0; font-size: var(--t-sm); color: var(--ink); }
+.resume > div { min-width: 0; flex: 1 1 16rem; }

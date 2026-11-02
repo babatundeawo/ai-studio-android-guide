@@ -24,6 +24,10 @@
 <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5m-6 6 6-6 6 6"/></symbol>
 <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.500 4.500 4.500L19 7.500"/></symbol>
 <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
-<symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V3.500M8 7l4-4 4 4"/><path d="M7 10.500H6a2 2 0 0 0-2 2V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6.500a2 2 0 0 0-2-2h-1"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5.500" r="2.500"/><circle cx="6" cy="12" r="2.500"/><circle cx="18" cy="18.500" r="2.500"/><path d="m8.200 10.800 7.600-4.100M8.200 13.200l7.600 4.100"/></symbol>
+<symbol id="i-ios-share" viewBox="0 0 24 24"><path d="M12 15V3.500M8 7l4-3.500L16 7M7.500 10H6.500A1.500 1.500 0 0 0 5 11.500v7A1.500 1.500 0 0 0 6.500 20h11a1.500 1.500 0 0 0 1.500-1.500v-7a1.500 1.500 0 0 0-1.500-1.500h-1"/></symbol>
 <symbol id="i-plus-square" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M12 8.500v7M8.500 12h7"/></symbol>
+<symbol id="i-dots-v" viewBox="0 0 24 24"><circle cx="12" cy="5.500" r="1.300"/><circle cx="12" cy="12" r="1.300"/><circle cx="12" cy="18.500" r="1.300"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7.500 10.500 12 15l4.500-4.500M5 19.500h14"/></symbol>
+<symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V4h10v5M7 17H5a1 1 0 0 1-1-1v-5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a1 1 0 0 1-1 1h-2"/><rect x="7" y="14" width="10" height="6" rx="1"/></symbol>
 </defs></svg>

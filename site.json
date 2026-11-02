@@ -1,29 +1,32 @@
 {
-  "name": "AI Studio → Android Guide",
-  "shortName": "AI Studio → Android",
+  "name": "AI Studio to Android Guide",
+  "shortName": "Studio Guide",
+  "tagline": "A step-by-step guide to turning a Google AI Studio project into an Android app you can install from your home screen.",
   "version": "5.0",
-  "updated": "Nov 2026",
+  "updated": "November 2026",
+  "updatedISO": "2026-11-01",
   "url": "https://babatundeawo.github.io/ai-studio-android-guide/",
   "repo": "https://github.com/babatundeawo/ai-studio-android-guide",
   "author": "Babatunde Awoyemi",
   "publisher": "Techbase Consultant Services",
   "twitter": "@ba_awoyemi",
-  "themeColor": { "light": "#f7f8fc", "dark": "#0b1020" },
+  "themeMode": "system",
+  "themeColor": { "light": "#fbfaf6", "dark": "#08130f" },
   "nav": [
-    { "label": "Overview", "items": [ { "page": "index", "label": "Introduction & hub" } ] },
-    { "label": "Setup: Parts 1–3", "items": [
+    { "label": "Overview", "items": [ { "page": "index", "label": "Introduction and hub" } ] },
+    { "label": "Setup: Parts 1 to 3", "items": [
       { "page": "accounts", "label": "Account Setup" },
       { "page": "build", "label": "Build in AI Studio" },
       { "page": "github", "label": "GitHub Bridge" } ] },
-    { "label": "Deployment: Parts 4–6", "items": [
+    { "label": "Deployment: Parts 4 to 6", "items": [
       { "page": "vercel", "label": "Deploy to Vercel" },
-      { "page": "replit", "label": "Deploy to Replit" },
+      { "page": "replit", "label": "Deploy to Replit", "optional": true },
       { "page": "android", "label": "Install on Android" },
       { "page": "updates", "label": "Update Workflow" } ] },
     { "label": "Reference", "items": [
       { "page": "troubleshoot", "label": "Troubleshooting" },
       { "page": "tips", "label": "Best Practices" },
-      { "page": "glossary", "label": "Glossary & Appendix" } ] }
+      { "page": "glossary", "label": "Glossary and Appendix" } ] }
   ],
   "order": ["index","accounts","build","github","vercel","replit","android","updates","troubleshoot","tips","glossary"]
 }
